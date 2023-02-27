@@ -9,7 +9,7 @@
     </head>
     
     <body>
-        <?php 
+        <?php
             include_once "search.inc.php";
         ?>
     </body>
