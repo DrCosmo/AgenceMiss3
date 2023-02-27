@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fff;
+    height: 100vh;
+    width: 100vw;
+}
+
+form{
+    display: flex;
+    padding: 10px;
+    max-width: 400px;
+    height: auto;
+    background-color: #d1e0e3;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form div{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+form div label{
+    width: 60px;
+}
+
+form div select{
+    width: 100%;
+    appearance: none;
+    background-color: #c0d4d8;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 0 5px 0 5px;
+}
+
+#submit{
+    width: 33%;
+    appearance: none;
+    background-color: #c0d4d8;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 1px 5px 1px 5px;
+    align-self: center;
+}

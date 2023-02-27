@@ -1,6 +1,5 @@
 <?php
-include "tests/testTypeOptions.php";
-include "tests/testVilleOptions.php";
+include "tests/testGetBienForm.php";
 ?>
 <form action="tests/testGetBienForm.php" method="POST">
     <div class="searchVille">
@@ -27,7 +26,7 @@ include "tests/testVilleOptions.php";
             ?>
         </select>
     </div>
-    <input type="submit" id='submit' name="submit" value="Rechercher">
+    <input type="submit" id="submit" name="submit" value="Rechercher">
 </form>
 
 <?php

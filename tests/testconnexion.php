@@ -1,7 +1,7 @@
 <?php
-    $server = "mysql:host=localhost:3306;dbname=agence_immo";
-    $username = "root";
-    $password = "";
+    $server = "mysql:host=localhost;dbname=agence_immo";
+    $username = "CASLOGEZ";
+    $password = "CASLOGEZ";
 
     $conn = null;
     try {
