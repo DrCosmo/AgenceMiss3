@@ -16,7 +16,7 @@ function connectionBDD(){
 
 function getVilles($pdo){
 
-    $villeSql = $pdo->prepare('SELECT * FROM ville');
+    $villeSql = $pdo->prepare('SELECT noVille,libelle FROM ville');
     $villeSql->execute();
     $lesVilles = $villeSql->fetchAll();
     
@@ -25,7 +25,7 @@ function getVilles($pdo){
 
 function getTypes($pdo){
 
-    $typeSql = $pdo->prepare('SELECT * FROM type');
+    $typeSql = $pdo->prepare('SELECT noType,libelle FROM type');
     $typeSql->execute();
     $lesTypes = $typeSql->fetchAll();
     
@@ -33,7 +33,7 @@ function getTypes($pdo){
 }
 
 function getBiens($pdo, $ville, $type){
-    $sql= "SELECT * FROM bien WHERE type=$type and ville=$ville";
+    $sql= "SELECT nbpiece,jardin,surface,prix,ville,type,Description,Img FROM bien WHERE type=$type and ville=$ville";
     $getBien = $pdo->prepare($sql);
     $getBien->execute();
     $lesBiens=$getBien->fetchAll();
