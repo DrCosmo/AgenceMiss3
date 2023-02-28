@@ -1,19 +1,39 @@
 <?php
-    $server = "mysql:host=localhost;dbname=agence_immo";
-    $username = "CASLOGEZ";
-    $password = "CASLOGEZ";
+include_once 'ConnexionDB.php';
 
-    $conn = null;
-    try {
+ /* function verification(){
+  $lePdo = connexionBDD();
+  $infoUser=$lePdo ->prepare("SELECT nom,hachage FROM membres WHERE nom='$name' and hachage='$passwd'");
+  if($found['nom']==$name && $found['hachage']==$passwd){
+  header("location: index.php");
+  }
+  }
+ */
+  /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
+ */
 
-    $conn = new PDO($server, $username, $password);
+$name=$_POST['name'];
+$passwd=$_POST['passwd'];
 
-    } catch(PDOException $e) {
+$bd= connexionBDD();
+ 
+ 
+ 
+$infoUser=$bd ->prepare("SELECT nom,prenom,hachage FROM membres WHERE nom='$name' and hachage='$passwd'");
+$infoUser->execute();
+$row=$infoUser->rowCount();
 
-        echo "Connection failed: " . $e->getMessage();
-
+ if ($row > 0) {
+     session_start();
+     $_SESSION['username'] = $name;
+     $_SESSION['prenom'] = $prenom;
+        header("Location: ../index.php");
+        exit();
+    } else {
+        echo "Nom d'utilisateur ou mot de passe incorrect";
     }
 
-
-
-?>
+    deconnexionBDD($bd);
+  
