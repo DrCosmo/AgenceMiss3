@@ -32,7 +32,7 @@ function getTypes($pdo){
     return$lesTypes;
 }
 
-function getBiens($pdo, $ville, $type){
+function getBiensSearch($pdo, $ville, $type){
     $sql= "SELECT nbpiece,jardin,surface,prix,ville,type,Description,Img FROM bien WHERE type=$type and ville=$ville";
     $getBien = $pdo->prepare($sql);
     $getBien->execute();
