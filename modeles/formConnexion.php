@@ -1,5 +1,5 @@
 <?php
-include_once 'ConnexionDB.php';
+include_once 'fonctionsAccesBDD.php';
 
  /* function verification(){
   $lePdo = connexionBDD();
