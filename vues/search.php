@@ -1,5 +1,5 @@
 
-<form action="" method="POST">
+<form action="" method="POST" id="formSearch">
     <div class="searchVille">
         <label for="villeList">Ville : </label>
         <select name="villeList" id="villeList">
