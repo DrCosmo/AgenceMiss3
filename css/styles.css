@@ -10,7 +10,7 @@ body{
     width: 100vw;
 }
 
-form{
+#formSearch{
     display: flex;
     padding: 10px;
     max-width: 400px;
@@ -20,17 +20,17 @@ form{
     gap: 20px;
 }
 
-form div{
+#formSearch div{
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
 
-form div label{
+#formSearch div label{
     width: 60px;
 }
 
-form div select{
+#formSearch div select{
     width: 100%;
     appearance: none;
     background-color: #c0d4d8;
