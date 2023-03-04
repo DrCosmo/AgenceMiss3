@@ -33,10 +33,11 @@ function getTypes($pdo){
 }
 
 function getBiensSearch($pdo, $ville, $type){
-    $sql= "SELECT nbpiece,jardin,surface,prix,ville,type,Description,Img FROM bien WHERE type=$type and ville=$ville";
-    $getBien = $pdo->prepare($sql);
-    $getBien->execute();
+    $getBien = $pdo->prepare("SELECT nbpiece,jardin,surface,prix,ville,type,Description,Img FROM bien WHERE type= :typeChoisi and ville= :villeChoisi");
+    $getBien->bindValue(':typeChoisi' , $type);
+    $getBien->bindValue(':villeChoisi' , $ville);
+    $executionOk = $getBien->execute();
     $lesBiens=$getBien->fetchAll();
-
+    header("Location: ?NoVille=$ville&NoType=$type");
     return $lesBiens;
 }
