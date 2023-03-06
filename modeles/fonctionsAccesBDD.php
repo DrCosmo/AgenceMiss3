@@ -41,3 +41,35 @@ function getBiensSearch($pdo, $ville, $type){
     header("Location: ?NoVille=$ville&NoType=$type");
     return $lesBiens;
 }
+
+function formConnexion($name,$passwd){
+
+    $bd=connectionBDD();
+$infoUser=$bd ->prepare("SELECT hachage FROM membres WHERE nom=?");
+$infoUser->execute(array($name));
+$infoUser=$infoUser->fetch();
+
+
+ if (isset($infoUser['hachage'])) {
+     if(password_verify($passwd, $infoUser['hachage'])){
+        login($name,$bd);
+     }
+     else{
+        
+        echo "Nom d'utilisateur ou mot de passe incorrect";
+     }
+    } else {
+        
+        echo "Nom d'utilisateur de passe incorrect";
+    }
+}
+
+function login($name,$bd){
+    $infoUser=$bd ->prepare("SELECT nom,prenom,hachage FROM membres WHERE nom=?");
+    $infoUser->execute(array($name));
+    $infoUser=$infoUser->fetch();
+
+    $_SESSION['nom'] = $infoUser['nom'];
+    $_SESSION['prenom'] = $infoUser['prenom'];
+    header('Location: /');
+}

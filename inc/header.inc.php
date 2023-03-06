@@ -1,4 +1,7 @@
 ﻿<!DOCTYPE html>
+<?php
+session_start();
+?>
 <html>
     <head>
     <meta charset="UTF-8">
@@ -10,6 +13,8 @@
     
     <body>
         <?php
-            include_once "search.inc.php";
+            
+            include_once 'autres\verifConnexion.php';
+            include_once "vues\search.php";
         ?>
-    </body>
+    

@@ -48,3 +48,76 @@ body{
     padding: 1px 5px 1px 5px;
     align-self: center;
 }
+.menuLogin{
+    width: 300px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
+.menuLogin h2 {
+    margin-top: 0;
+  }
+  
+  .menuLogin label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .menuLogin input[type="text"],
+  .menuLogin input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  .menuLogin button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menuLogin button:hover {
+    background-color: #3e8e41;
+  }
+  .menuMembre{
+    display: flex;
+    flex-direction: column;
+    background-color: azure;
+  }
+
+  .footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    height: 50px;
+    background-color: #e4e4e4;
+
+    margin-bottom: 0;
+
+    /*Evite la selection. // merci https://www.w3schools.com/howto/howto_css_disable_text_selection.asp */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+
+
+.footer a{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer a:hover{
+    background-color: #d4d4d4;
+}
