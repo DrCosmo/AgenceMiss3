@@ -73,3 +73,10 @@ function login($name,$bd){
     $_SESSION['prenom'] = $infoUser['prenom'];
     header('Location: index.php');
 }
+function getToutBiens($pdo){
+    $sql= "SELECT description,img,jardin,nbpiece,prix,reference,surface,type,ville FROM bien INNER JOIN type ON type = noType ";
+    $getBien = $pdo->prepare($sql);
+    $getBien->execute();
+    $biens=$getBien->fetchAll();
+    return $biens;
+}
