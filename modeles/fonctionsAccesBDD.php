@@ -41,3 +41,10 @@ function getBiensSearch($pdo, $ville, $type){
     header("Location: ?NoVille=$ville&NoType=$type");
     return $lesBiens;
 }
+function getToutBiens($pdo){
+    $sql= "SELECT description,img,jardin,nbpiece,prix,reference,surface,type,ville FROM bien INNER JOIN type ON type = noType ";
+    $getBien = $pdo->prepare($sql);
+    $getBien->execute();
+    $biens=$getBien->fetchAll();
+    return $biens;
+}
