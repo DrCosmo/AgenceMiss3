@@ -71,5 +71,5 @@ function login($name,$bd){
 
     $_SESSION['nom'] = $infoUser['nom'];
     $_SESSION['prenom'] = $infoUser['prenom'];
-    header('Location: /');
+    header('Location: index.php');
 }
