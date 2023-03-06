@@ -2,7 +2,7 @@
 
 function connectionBDD(){
 
-    $server = "mysql:host=localhost;dbname=Agence_immo";
+    $server = "mysql:host=localhost;dbname=agence_immo";
     $username = "CASLOGEZ";
     $password = "CASLOGEZ";
     
