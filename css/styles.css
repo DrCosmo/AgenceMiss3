@@ -45,9 +45,67 @@ body{
     background-color: #c0d4d8;
     border-radius: 5px;
     border: 1px solid black;
-    padding: 1px 5px 1px 5px;
+    padding: 1px 5px;
+    margin-top: 10px;
     align-self: center;
 }
+
+#formAjoutbien{
+    background-color: #d1e0e3;
+    height: auto;
+    width: fit-content;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-radius: 5px;
+}
+
+#formAjoutbien div{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#formAjoutbien div input:not(input[type="radio"]){
+    appearance: none;
+    border: none;
+    width: max-content;
+    background-color: #c0d4d8;
+    padding: 2px 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#formAjoutbien div input[type="radio"]{
+    appearance: none;
+    display: none;
+    border-radius: 5px;
+}
+
+#formAjoutbien div input[type="radio"]+label{
+    padding: 0px 5px;
+    border: 1px dashed black;
+    background-color: #c0d4d8;
+    border-radius: 5px
+}
+
+#formAjoutbien div input[type="radio"]:checked+label{
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+#formAjoutbien div select{
+    appearance: none;
+    border: none;
+    width: max-content;
+    background-color: #c0d4d8;
+    padding: 2px 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 .menuLogin{
     width: 300px;
     margin: 50px auto;
@@ -101,7 +159,7 @@ body{
     height: 50px;
     background-color: #e4e4e4;
 
-    margin-bottom: 0;
+    bottom: 0;
 
     /*Evite la selection. // merci https://www.w3schools.com/howto/howto_css_disable_text_selection.asp */
     -webkit-user-select: none; /* Safari */
