@@ -2,7 +2,7 @@
 
 function connectionBDD(){
 
-    $server = "mysql:host=localhost;dbname=Agence_immo";
+    $server = "mysql:host=localhost;dbname=agence_immo";
     $username = "CASLOGEZ";
     $password = "CASLOGEZ";
     
@@ -79,4 +79,29 @@ function getToutBiens($pdo){
     $getBien->execute();
     $biens=$getBien->fetchAll();
     return $biens;
+}
+
+function ajoutBien( $pdo, 
+                    $ville, 
+                    $type, 
+                    $jardin, 
+                    $surface, 
+                    $nbPiece, 
+                    $prix, 
+                    $description, 
+                    $urlImage){
+    echo "hello";
+    
+    $ajoutBien=$pdo->prepare("INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`, `type`, `description`, `img`) "
+            . "VALUES (NULL, :nbpiece, :jardin, :surface, :prix, :ville, :type, :description, :img); ");
+    $ajoutBien->bindValue(':nbpiece' , $nbPiece);
+    $ajoutBien->bindValue(':jardin' , $jardin);
+    $ajoutBien->bindValue(':surface' , $surface);
+    $ajoutBien->bindValue(':prix' , $prix);
+    $ajoutBien->bindValue(':ville' , $ville);
+    $ajoutBien->bindValue(':type' , $type);
+    $ajoutBien->bindValue(':description' , $description);
+    $ajoutBien->bindValue(':img' , $urlImage);
+    $ajoutBien->execute();
+    header("Location: ?BienAjoute=1");
 }
