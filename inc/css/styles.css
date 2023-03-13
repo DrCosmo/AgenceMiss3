@@ -1,0 +1,365 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fff;
+    height: 100vh;
+    width: 100vw;
+}
+
+#formSearch{
+    display: flex;
+    padding: 10px;
+    max-width: 400px;
+    height: auto;
+    background-color: #d1e0e3;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#formSearch div{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#formSearch div label{
+    width: 60px;
+}
+
+#formSearch div select{
+    width: 100%;
+    appearance: none;
+    background-color: #c0d4d8;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 0 5px 0 5px;
+}
+
+#submit{
+    width: 33%;
+    appearance: none;
+    background-color: #c0d4d8;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 1px 5px;
+    margin-top: 10px;
+    align-self: center;
+}
+
+#formAjoutbien{
+    background-color: #d1e0e3;
+    height: auto;
+    width: fit-content;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-radius: 5px;
+}
+
+#formAjoutbien div{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#formAjoutbien div input:not(input[type="radio"]){
+    appearance: none;
+    border: none;
+    width: max-content;
+    background-color: #c0d4d8;
+    padding: 2px 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#formAjoutbien div input[type="radio"]{
+    appearance: none;
+    display: none;
+    border-radius: 5px;
+}
+
+#formAjoutbien div input[type="radio"]+label{
+    padding: 0px 5px;
+    border: 1px dashed black;
+    background-color: #c0d4d8;
+    border-radius: 5px
+}
+
+#formAjoutbien div input[type="radio"]:checked+label{
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+#formAjoutbien div select{
+    appearance: none;
+    border: none;
+    width: max-content;
+    background-color: #c0d4d8;
+    padding: 2px 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.menuLogin{
+    width: 300px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
+.menuLogin h2 {
+    margin-top: 0;
+  }
+  
+  .menuLogin label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .menuLogin input[type="text"],
+  .menuLogin input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  .menuLogin button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menuLogin button:hover {
+    background-color: #3e8e41;
+  }
+  .menuMembre{
+    display: flex;
+    flex-direction: column;
+    background-color: azure;
+  }
+            /* css liste des bien*/
+            h1, h2, h3, h4 {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+              }
+              
+              #listerBiens {
+                height: 100%;
+                width: 100%;
+                padding: 75px;
+                overflow-y: scroll;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 75px;
+              }
+              
+              #listerBiens a {
+                width: auto;
+                height: auto;
+                background-color: #e2e2e2;
+                padding: 20px 10px;
+                border-radius: 10px;
+                display: flex;
+                justify-content: space-between;
+              }
+              
+              #listerBiens a:hover {
+                background-color: #d4d4d4;
+              }
+              
+              #listerBiens a .left {
+                height: auto;
+                width: 65%;
+                background-color: #ea094b;
+                color: #fff;
+                border-radius: 10px;
+                padding: 5px 15px;
+              }
+              
+              #listerBiens a:hover .left {
+                background-color: #da0948;
+              }
+              
+              #listerBiens a .left .title {
+                padding-left: 50px;
+              }
+              
+              #listerBiens a .left .infos {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+              }
+              
+              #listerBiens a .left .infos div {
+                width: 20%;
+                background-color: #fff;
+                color: black;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 5px;
+                padding: 2px 5px;
+              }
+              
+              #listerBiens a:hover .left .infos div {
+                background-color: rgb(231, 231, 231);
+              }
+              
+              #listerBiens a .left .description {
+                padding: 4px 0;
+              }
+              
+              #listerBiens a .left .description h4 {
+                padding: 0 0 4px 0;
+              }
+              
+              #listerBiens a img {
+                height: 100%;
+                width: auto;
+              }
+            /*css afficher un bien*/
+
+            .midpage{
+                height: 100%;
+                width: 100%;
+                overflow-y: scroll;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                gap: 50px;
+                padding-top: 5%;
+            }
+            
+            .slider{
+                height: 360px;
+                width: auto;
+                aspect-ratio: 16/9;
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+            
+                border-radius: 10px 10px 0px 0px;
+            }
+            
+            .slider img{
+                flex: 1 0 100%;
+                scroll-snap-align: start;
+                object-fit: cover;
+            }
+            
+            .top{
+                background-color: #4793da;
+                width: auto;
+                padding: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 70px;
+                border-radius: 10px;
+            }
+            
+            .top .topleft{
+                background-color: #fff;
+                padding: 10px 20px;
+                width: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                border-radius: 10px;
+            }
+            
+            .top .topleft .title{
+                background-color: #4793da;
+                padding: 5px 10px;
+                border-radius: 5px;
+                color: #fff;
+                font-size: 25px;
+            }
+            
+            .top .topleft .caracteristiques{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .top .topleft .caracteristiques section{
+                display: flex;
+                flex-direction: column;
+            }
+            
+            article{
+                width: 1000px;
+                font-size: 20px;
+            }
+            
+            .sticky{
+                position: fixed; top: 20%; right: 0; border: 0;
+                background-color: #4793da;
+                padding: 10px;
+                border-radius: 10px 0 0 10px;
+                width: 250px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .sticky img{
+                height: 50px;
+            }
+            
+            .sticky a .agenceAutrice{
+                display: flex;
+                gap: 20px;
+            }
+            
+            .sticky:hover {
+                background-color: #3d7fbd;
+            }
+
+
+  .footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    height: 50px;
+    background-color: #e4e4e4;
+
+    bottom: 0;
+
+    /*Evite la selection. // merci https://www.w3schools.com/howto/howto_css_disable_text_selection.asp */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+
+
+.footer a{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer a:hover{
+    background-color: #d4d4d4;
+}
+
