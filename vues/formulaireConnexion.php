@@ -1,6 +1,6 @@
 <?php
-include_once 'modeles\fonctionsAccesBDD.php';
-include_once 'autres\verifSaisForm.php';
+include_once 'modeles/fonctionsAccesBDD.php';
+include_once 'autres/verifSaisForm.php';
 
 ?>
 

@@ -74,11 +74,18 @@ function login($name,$bd){
     header('Location: index.php');
 }
 function getToutBiens($pdo){
-    $sql= "SELECT description,img,jardin,nbpiece,prix,reference,surface,type,ville FROM bien INNER JOIN type ON type = noType ";
+    $sql= "SELECT description,img,jardin,nbpiece,prix,reference,surface,type.libelle as type_bien,ville.libelle as ville_nom FROM bien INNER JOIN type ON type = noType INNER JOIN ville ON ville = noVille"; // J'utilise les "as" pour rennomer les libelle car sinon le dexième libelle écrase le premier"
     $getBien = $pdo->prepare($sql);
     $getBien->execute();
     $biens=$getBien->fetchAll();
     return $biens;
+}
+function getBienByReference($bd, $reference){
+    $sql= "SELECT description,img,jardin,nbpiece,prix,surface,type.libelle as type_bien,ville.libelle as ville_nom FROM bien INNER JOIN type ON type = noType INNER JOIN ville ON ville = noVille WHERE reference=?";
+    $getBien = $bd->prepare($sql);
+    $getBien->execute(array($reference));
+    $bien=$getBien->fetch();
+    return $bien;
 }
 
 function ajoutBien( $pdo, 
