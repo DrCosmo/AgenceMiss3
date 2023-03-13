@@ -5,7 +5,11 @@
 <div id="listerBiens">
     <?php
         include_once 'modeles/fonctionsAccesBDD.php';
-        $lesBiens = getToutBiens($pdo);
+        if(!isset($_GET['recherche'])){
+            $lesBiens = getToutBiens($pdo);
+        }else{
+            $lesBiens = getBiensSearch($pdo, $_GET['noVille'], $_GET['noType']);
+        }
         foreach ($lesBiens as $unBien) {
     ?>
     <a href="vues/VueBien.php?reference=<?php echo $unBien["reference"];?>">

@@ -10,11 +10,71 @@ body{
     width: 100vw;
 }
 
+/*
+HEADER
+*/
+
+header{
+    background-color: #4793da;
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+header ul{
+    height: 50px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+    background: #fff;
+    list-style: none;
+    border-radius: calc(50px/2);
+}
+
+header ul li a{
+    color: black;
+    height: 50px;
+    text-decoration: none;
+    background-color: hsl( 0, 0%, 100%);
+    padding: 8px 12px;
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+header ul li a:hover{
+    background: hsl( 0, 0%, 90%);
+}
+
+header ul li .navSelected{
+    background: #4793da;
+    color: #fff;
+}
+
+/*
+SECTION
+*/
+
+.midpage{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 #formSearch{
     display: flex;
     padding: 10px;
-    max-width: 400px;
-    height: auto;
+    max-width: fit-content;
+    height: fit-content;
     background-color: #d1e0e3;
     flex-direction: column;
     gap: 20px;
@@ -150,191 +210,192 @@ body{
     flex-direction: column;
     background-color: azure;
   }
-            /* css liste des bien*/
-            h1, h2, h3, h4 {
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-              }
-              
-              #listerBiens {
-                height: 100%;
-                width: 100%;
-                padding: 75px;
-                overflow-y: scroll;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 75px;
-              }
-              
-              #listerBiens a {
-                width: auto;
-                height: auto;
-                background-color: #e2e2e2;
-                padding: 20px 10px;
-                border-radius: 10px;
-                display: flex;
-                justify-content: space-between;
-              }
-              
-              #listerBiens a:hover {
-                background-color: #d4d4d4;
-              }
-              
-              #listerBiens a .left {
-                height: auto;
-                width: 65%;
-                background-color: #ea094b;
-                color: #fff;
-                border-radius: 10px;
-                padding: 5px 15px;
-              }
-              
-              #listerBiens a:hover .left {
-                background-color: #da0948;
-              }
-              
-              #listerBiens a .left .title {
-                padding-left: 50px;
-              }
-              
-              #listerBiens a .left .infos {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-              }
-              
-              #listerBiens a .left .infos div {
-                width: 20%;
-                background-color: #fff;
-                color: black;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                border-radius: 5px;
-                padding: 2px 5px;
-              }
-              
-              #listerBiens a:hover .left .infos div {
-                background-color: rgb(231, 231, 231);
-              }
-              
-              #listerBiens a .left .description {
-                padding: 4px 0;
-              }
-              
-              #listerBiens a .left .description h4 {
-                padding: 0 0 4px 0;
-              }
-              
-              #listerBiens a img {
-                height: 100%;
-                width: auto;
-              }
-            /*css afficher un bien*/
+/* css liste des bien*/
+h1, h2, h3, h4 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
-            .midpage{
-                height: 100%;
-                width: 100%;
-                overflow-y: scroll;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                align-items: center;
-                gap: 50px;
-                padding-top: 5%;
-            }
-            
-            .slider{
-                height: 360px;
-                width: auto;
-                aspect-ratio: 16/9;
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                scroll-behavior: smooth;
-            
-                border-radius: 10px 10px 0px 0px;
-            }
-            
-            .slider img{
-                flex: 1 0 100%;
-                scroll-snap-align: start;
-                object-fit: cover;
-            }
-            
-            .top{
-                background-color: #4793da;
-                width: auto;
-                padding: 20px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 70px;
-                border-radius: 10px;
-            }
-            
-            .top .topleft{
-                background-color: #fff;
-                padding: 10px 20px;
-                width: auto;
-                display: flex;
-                flex-direction: column;
-                gap: 30px;
-                border-radius: 10px;
-            }
-            
-            .top .topleft .title{
-                background-color: #4793da;
-                padding: 5px 10px;
-                border-radius: 5px;
-                color: #fff;
-                font-size: 25px;
-            }
-            
-            .top .topleft .caracteristiques{
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-            }
-            
-            .top .topleft .caracteristiques section{
-                display: flex;
-                flex-direction: column;
-            }
-            
-            article{
-                width: 1000px;
-                font-size: 20px;
-            }
-            
-            .sticky{
-                position: fixed; top: 20%; right: 0; border: 0;
-                background-color: #4793da;
-                padding: 10px;
-                border-radius: 10px 0 0 10px;
-                width: 250px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;
-            }
-            
-            .sticky img{
-                height: 50px;
-            }
-            
-            .sticky a .agenceAutrice{
-                display: flex;
-                gap: 20px;
-            }
-            
-            .sticky:hover {
-                background-color: #3d7fbd;
-            }
+#listerBiens {
+    height: 100%;
+    width: 100%;
+    padding: 75px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 75px;
+}
+
+#listerBiens a {
+    width: auto;
+    height: auto;
+    background-color: #e2e2e2;
+    padding: 20px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#listerBiens a:hover {
+    background-color: #d4d4d4;
+}
+
+#listerBiens a .left {
+    height: auto;
+    width: 65%;
+    background-color: #ea094b;
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+
+#listerBiens a:hover .left {
+    background-color: #da0948;
+}
+
+#listerBiens a .left .title {
+    padding-left: 50px;
+}
+
+#listerBiens a .left .infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#listerBiens a .left .infos div {
+    width: 20%;
+    background-color: #fff;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+#listerBiens a:hover .left .infos div {
+    background-color: rgb(231, 231, 231);
+}
+
+#listerBiens a .left .description {
+    padding: 4px 0;
+}
+
+#listerBiens a .left .description h4 {
+    padding: 0 0 4px 0;
+}
+
+#listerBiens a img {
+    height: 100%;
+    width: auto;
+}
+
+/*css afficher un bien*/
+
+.midpage{
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 50px;
+    padding-top: 5%;
+}
+
+.slider{
+    height: 360px;
+    width: auto;
+    aspect-ratio: 16/9;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    border-radius: 10px 10px 0px 0px;
+}
+
+.slider img{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+}
+
+.top{
+    background-color: #4793da;
+    width: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70px;
+    border-radius: 10px;
+}
+
+.top .topleft{
+    background-color: #fff;
+    padding: 10px 20px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 10px;
+}
+
+.top .topleft .title{
+    background-color: #4793da;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 25px;
+}
+
+.top .topleft .caracteristiques{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.top .topleft .caracteristiques section{
+    display: flex;
+    flex-direction: column;
+}
+
+article{
+    width: 1000px;
+    font-size: 20px;
+}
+
+.sticky{
+    position: fixed; top: 20%; right: 0; border: 0;
+    background-color: #4793da;
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.sticky img{
+    height: 50px;
+}
+
+.sticky a .agenceAutrice{
+    display: flex;
+    gap: 20px;
+}
+
+.sticky:hover {
+    background-color: #3d7fbd;
+}
 
 
-  .footer{
+.footer{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

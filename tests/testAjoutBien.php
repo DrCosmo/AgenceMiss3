@@ -1,34 +1,17 @@
 <?php
 
-echo "1 echo";
-
-include_once 'modeles/fonctionsAccesBDD.php';
+include_once '../modeles/fonctionsAccesBDD.php';
 
 $lepdo=connectionBDD();
-echo "apres include bdd";
 
-include_once 'vues/ajoutBien.php';
-
-echo "apres vue ajout bien";
+echo "apres include bdd</br>";
 
 
-if(isset($_POST['submit'])){
-    
-    echo 'dans le if debut';
-    
-
-    ajoutBien($lepdo, $_POST['saisieVille'], 
-            $_POST['saisieType'], 
-            $_POST['saisieJardin'], 
-            $_POST['saisieSurface'], 
-            $_POST['saisieNbPiece'], 
-            $_POST['saisiePrix'], 
-            $_POST['saisieDescription'], 
-            $_POST['saisieImage']);
-    
-    echo 'dans le if apres fonction';
-    
-}
-
-echo 'apres le IF';
-
+ajoutBien($lepdo, 2, 
+          1, 
+          1, 
+          25, 
+          9, 
+          25000, 
+            "description test", 
+            "url/img");

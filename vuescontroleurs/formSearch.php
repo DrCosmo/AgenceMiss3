@@ -10,6 +10,7 @@ if(isset($_POST['submit'])){
 
     $noVille=$_POST['villeList'];
     $noType=$_POST['typeList'];
-    getBiensSearch($lepdo, $_POST['villeList'], $_POST['typeList']);
+    $recherche=getBiensSearch($lepdo, $_POST['villeList'], $_POST['typeList']);
+    header("Location: ?recherche=1&noVille=$noVille&noType=$noType");
 }
 ?>

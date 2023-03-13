@@ -12,9 +12,16 @@ session_start();
     </head>
     
     <body>
-        <?php
-            
-            include_once 'autres/verifConnexion.php';
-            include_once "vues/search.php";
-            include_once "vues/list.php";
-        ?>
+        <header>
+            <h1>
+                Agence Immo
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="?page=lesBiens" class="<?php if($page=="lesBiens"){ echo'navSelected'; }?>">Les biens</a></li>
+                    <li><a href="?page=connexion" class="<?php if($page=="lesBiens"){ echo'navSelected'; }?>">Connexion</a></li>
+                    <li><a href="?page=ajoutBien" class="<?php if($page=="lesBiens"){ echo'navSelected'; }?>">Ajouter un bien</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="midpage">

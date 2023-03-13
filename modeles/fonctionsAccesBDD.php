@@ -38,7 +38,6 @@ function getBiensSearch($pdo, $ville, $type){
     $getBien->bindValue(':villeChoisi' , $ville);
     $executionOk = $getBien->execute();
     $lesBiens=$getBien->fetchAll();
-    header("Location: ?NoVille=$ville&NoType=$type");
     return $lesBiens;
 }
 
@@ -97,7 +96,6 @@ function ajoutBien( $pdo,
                     $prix, 
                     $description, 
                     $urlImage){
-    echo "hello";
     
     $ajoutBien=$pdo->prepare("INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`, `type`, `description`, `img`) "
             . "VALUES (NULL, :nbpiece, :jardin, :surface, :prix, :ville, :type, :description, :img); ");
@@ -110,5 +108,4 @@ function ajoutBien( $pdo,
     $ajoutBien->bindValue(':description' , $description);
     $ajoutBien->bindValue(':img' , $urlImage);
     $ajoutBien->execute();
-    header("Location: ?BienAjoute=1");
 }
