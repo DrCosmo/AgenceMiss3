@@ -24,8 +24,23 @@
             ?>
         </select>
     </div>
-    <div class="send">
-        <input type="submit" id="reset" name="reset" value="Effacer">
-        <input type="submit" id="submit" name="submit" value="Rechercher">
+    <div class="chooseJardin">
+        <label for="ChoixJardin">Jardin : </label>
+        <select name="ChoixJardin" id="ChoixJardin">
+            <?php
+            foreach(getJardin($lepdo) as $bien){
+                ?>
+                <option value="<?php echo $bien['jardin']?>"></option>
+                <?php
+            }
+            ?>
+        </select>
     </div>
+    <div class="choosePrix">
+        <label for="ChoixPrixMin">Prix Minimum : </label>
+        <input Type="number" name = "prixMin">
+        <label for="ChoixPrixMax">Prix Maximum : </label>
+        <input Type="number" name = "prixMax">
+    </div>
+    <input type="submit" id="submit" name="submit" value="Rechercher">
 </form>
