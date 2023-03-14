@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once "inc/header.inc.php";
 
 if(!isset($_GET['page'])){
