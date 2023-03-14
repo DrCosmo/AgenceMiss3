@@ -27,20 +27,15 @@
     <div class="chooseJardin">
         <label for="ChoixJardin">Jardin : </label>
         <select name="ChoixJardin" id="ChoixJardin">
-            <?php
-            foreach(getJardin($lepdo) as $bien){
-                ?>
-                <option value="<?php echo $bien['jardin']?>"></option>
-                <?php
-            }
-            ?>
+            <option value= "1">oui</option>
+            <option value= "0">non</option>
         </select>
     </div>
     <div class="choosePrix">
         <label for="ChoixPrixMin">Prix Minimum : </label>
-        <input Type="number" name = "prixMin">
+        <input Type="number" name = "ChoixPrixMin">
         <label for="ChoixPrixMax">Prix Maximum : </label>
-        <input Type="number" name = "prixMax">
+        <input Type="number" name = "ChoixPrixMax">
     </div>
     <input type="submit" id="submit" name="submit" value="Rechercher">
 </form>
