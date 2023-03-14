@@ -1,5 +1,5 @@
 <?php
-
+include_once "autres/verifConnexion.php";
 include_once "modeles/fonctionsAccesBDD.php";
 
 $lepdo=connectionBDD();
