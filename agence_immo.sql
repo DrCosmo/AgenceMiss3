@@ -76,6 +76,8 @@ INSERT INTO `membres` (`id`, `nom`, `prenom`, `hachage`) VALUES
 (3, 'Volvic', 'edward', '$argon2id$v=19$m=65536,t=4,p=1$bjBDVW9XRHdOQ29ZQ3M5SQ$dfDY5WK8drJU6xWLBV6TD+M1VsudjYE+i5ACa4rLEzY'),
 (4, 'Pilard', 'théo', '$argon2id$v=19$m=65536,t=4,p=1$THVJcnFkN3A5R0JHSUJLZA$E6x7yppCN7CN9P7Am4EpQyHV5IeJpAMQRIQlxDq2A4k'),
 (5, 'McVicker', 'Tyler', '$argon2id$v=19$m=65536,t=4,p=1$eDJDeU1tN21yRTBpZDRJQw$AnW2X7mhnd/3CLLm5W8uNlUedbho0VSUjZFKK6YhvaY');
+(6, 'Veranda', 'Steaphanie', '$argon2id$v=19$m=65536,t=4,p=1$hBKTUmf5ZiYMO+NiGoPeQw$6JY8U7Zdl02qTBUd5UZH3p2RFKWBKKGQvsFX66N2Pkg');
+(7, 'West', 'Franck', '$argon2id$v=19$m=65536,t=4,p=1$zTNJlQCllBl3jwpTRbskOg$8Vuw/dJdbUEv7FYnWJ/1kiB0Kb5CDTEWjaZ8lLHbf/0');
 
 -- --------------------------------------------------------
 
