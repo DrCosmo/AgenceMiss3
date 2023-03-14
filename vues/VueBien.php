@@ -1,6 +1,6 @@
 <?php
-include_once "../inc/header.inc.php";
-include_once '../autres/verifBienReference.php';  
+include_once "inc/header.inc.php";
+include_once 'autres/verifBienReference.php';  
     $reference = $_GET['reference'];
     $leBien = getBienByReference($db, $reference);
 ?>
@@ -11,11 +11,11 @@ include_once '../autres/verifBienReference.php';
                 <div class="title">
                     <h1>
                     <?php echo $leBien["type_bien"]." ".$leBien["nbpiece"]." pièces";?></h1>
-                
+
                     </h1>
                     <span>
                     <h3><?php echo $leBien['prix']." €";?></h3>
-                        
+
                     </span>
                 </div>
 
@@ -41,7 +41,7 @@ include_once '../autres/verifBienReference.php';
                 </div>
                 </div>
                 <div class="slider">
-                <img src="../<?php echo $leBien['img']?>" alt="Le bien">
+                <img src="<?php echo $leBien['img']?>" alt="Le bien">
             </div>
 
         <article>
@@ -52,3 +52,4 @@ include_once '../autres/verifBienReference.php';
             <?php echo $leBien['description'];?>
                             </p>
         </article>
+

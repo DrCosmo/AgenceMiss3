@@ -27,6 +27,10 @@ switch($page){
             include_once("controleurs/ajoutBien.php");
             break;
         }
+        case 'vuebien' :{
+            include_once("vues/VueBien.php");
+            break;
+        }
 
 }
 
