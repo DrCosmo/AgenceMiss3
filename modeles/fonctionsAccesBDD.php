@@ -31,7 +31,22 @@ function getTypes($pdo){
     
     return$lesTypes;
 }
+function getJardin($pdo){
 
+    $JardinSql = $pdo->prepare('SELECT jardin FROM bien');
+    $JardinSql->execute();
+    $lesJardins = $JardinSql->fetchAll();
+    
+    return $lesJardins;
+}
+function getPrix($pdo){
+
+    $PrixSql = $pdo->prepare('SELECT prix FROM bien');
+    $PrixSql->execute();
+    $lesPrix = $PrixSql->fetchAll();
+    
+    return $lesPrix;
+}
 function getBiensSearch($pdo, $ville, $type){
     $getBien = $pdo->prepare("SELECT nbpiece,jardin,surface,prix,ville,type,Description,Img FROM bien WHERE type= :typeChoisi and ville= :villeChoisi");
     $getBien->bindValue(':typeChoisi' , $type);
