@@ -1,32 +1,35 @@
 <?php
 
+include_once "inc/header.inc.php";
 
-
-include_once 'inc/header.inc.php';
-
-if (!isset($_GET['page']))
-{
-    $page="lesBiens";
-}
-else {
-    $page = $_GET['page'];
+if(!isset($_GET['page'])){
+    $page="home";
+}else{
+    $page=$_GET['page'];
 }
 
 switch($page){
- 
-	case 'lesBiens' :{
-		include("vuescontroleurs/formSearch.php");
-                include("vues/list.php");
-                break;
-	}
-	case 'connexion' :{
-		include("vues/formulaireConnexion.php");break; 
-	}
-        case 'ajoutBien' :{
-                include("vuescontroleurs/ajoutBien.php");break;
+
+        case "home" :{
+            echo'home';
+            break;
         }
-	
+        case "lesbiens" :{
+            include_once("controleurs/formSearch.php");
+            include_once("vues/list.php");
+            break;
+        }
+        case 'connexion' :{
+            include_once("controleurs/formConnexion.php");
+            break;
+        }
+        case 'ajoutbien' :{
+            include_once("controleurs/ajoutBien.php");
+            break;
+        }
+
 }
 
-include_once 'inc/footer.inc.php';
+include_once "inc/footer.inc.php";
+
 ?>

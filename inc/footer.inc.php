@@ -1,22 +1,24 @@
-
- </section>
- <footer class="footer">
-            <a href="pages/contact.html">
-                <h4>
-                    Contact
-                </h4>
-            </a>
-            <a href="pages/conditions_d_utilisations.html">
-                <h4>
-                    Conditions d'utilisations
-                </h4>
-            </a>
-            <a href="pages/mentions_legales.html">
-                <h4>
-                    Mentions légales
-                </h4>
-            </a>
+        </div>
+        
+        <footer>
+            <div class="pages">
+                <a href="?page=mentionlegalecgu">Mentions légales & CGU</a>
+                <a href="?page=donneesperso">Données personnelles</a>
+                <a href="?page=cookies">Gestionnaire des cookies</a>
+            </div>
+            <div class="social">
+                <ul>
+                    <li><a href="https://www.facebook.com"><img src="images/facebook.png" alt="facebook.icon"></a></li>
+                    <li><a href="https://www.instagram.com"><img src="images/instagram.png" alt="instagram.icon"></a></li>
+                    <li><a href="https://www.twitter.com"><img src="images/twitter.png" alt="twitter.icon"></a></li>
+                    <li><a href="https://www.linkedin.com"><img src="images/linkedin.png" alt="linkedin.icon"></a></li>
+                    <li><a href="https://www.youtube.com"><img src="images/youtube.png" alt="youtube.icon"></a></li>
+                </ul>
+            </div>
         </footer>
+
+
+        
+        <script> </script>
     </body>
 </html>
-

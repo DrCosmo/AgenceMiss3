@@ -24,5 +24,8 @@
             ?>
         </select>
     </div>
-    <input type="submit" id="submit" name="submit" value="Rechercher">
+    <div class="send">
+        <input type="submit" id="reset" name="reset" value="Effacer">
+        <input type="submit" id="submit" name="submit" value="Rechercher">
+    </div>
 </form>
