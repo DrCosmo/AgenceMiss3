@@ -30,6 +30,14 @@ function getJardin($pdo){
     
     return $lesJardins;
 }
+function getPrix($pdo){
+
+    $PrixSql = $pdo->prepare('SELECT prix FROM bien');
+    $PrixSql->execute();
+    $lesPrix = $PrixSql->fetchAll();
+    
+    return $lesPrix;
+}
 function getTypes($pdo){
 
     $typeSql = $pdo->prepare('SELECT noType,libelle FROM type');
