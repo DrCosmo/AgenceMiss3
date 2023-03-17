@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `bien` (
   `ville` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   `Description` text COLLATE utf8mb4_bin NOT NULL,
-  `Img` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `img` varchar(50) COLLATE utf8mb4_bin NOT NULL,
   PRIMARY KEY (`reference`),
   KEY `ce_type_bien` (`type`),
   KEY `ce_ville_bien` (`ville`)
@@ -48,8 +48,8 @@ CREATE TABLE IF NOT EXISTS `bien` (
 --
 
 INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`, `type`, `Description`, `Img`) VALUES
-(1, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', '../Image/maison1.jpeg'),
-(2, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', '../Image/maison1.jpeg');
+(1, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'img/maison_1/maison1.png'),
+(2, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'img/maison_2/maison1.jpg');
 
 -- --------------------------------------------------------
 

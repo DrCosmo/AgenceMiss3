@@ -32,19 +32,13 @@ function getTypes($pdo){
     return$lesTypes;
 }
 
-function getJardin($pdo){
-
-    $JardinSql = $pdo->prepare('SELECT jardin FROM bien');
-    $JardinSql->execute();
-    $lesJardins = $JardinSql->fetchAll();
-
-    return $lesJardins;
-}
-
-function getBiensSearch($pdo, $ville, $type){
-    $getBien = $pdo->prepare("SELECT nbpiece,jardin,surface,prix,ville,type,Description,img FROM bien WHERE type= :typeChoisi and ville= :villeChoisi");
+function getBiensSearch($pdo, $ville, $type, $jardin,$prixMax ,$prixMin ){
+    $getBien = $pdo->prepare("SELECT nbpiece,jardin,surface,prix,ville,type,Description,img FROM bien WHERE type= :typeChoisi and ville= :villeChoisi and jardin= :jardinChoisi BETWEEN :prixMin and :prixMax");
     $getBien->bindValue(':typeChoisi' , $type);
     $getBien->bindValue(':villeChoisi' , $ville);
+    $getBien->bindValue(':jardinChoisi' , $jardin);
+    $getBien->bindValue(':prixMin' , $prixMin);
+    $getBien->bindValue(':prixMax' , $prixMax);
     $executionOk = $getBien->execute();
     $lesBiens=$getBien->fetchAll();
     return $lesBiens;
