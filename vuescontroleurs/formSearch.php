@@ -14,6 +14,6 @@ if(isset($_POST['submit'])){
     //$noPrixMax=$_POST['ChoixPrixMax'];
     //$noPrixMin=$_POST['ChoixPrixMin'];
     //$recherche=getBiensSearch($lepdo, $_POST['villeList'], $_POST['typeList'],$_POST['ChoixJardin'],$_POST['ChoixPrixMax'],$_POST['ChoixPrixMin']);
-    header("Location: ?page=lesbiens&Recherche=1&noVille=$noVille&noType=$noType&noJardin=$noJardin&noPrixMax=$noPrixMax&noPrixMin=$noPrixMin");
+    header("Location: ?page=lesbiens&Recherche=1&noVille=$noVille&noType=$noType&noJardin=$noJardin&noPrixMax=$noPrixMax&noPrixMin=$noPrixMin&ChoixSurfaceMin=$surfaceMin&ChoixPiecesMin=$piecesMin");
 }
 ?>
