@@ -15,6 +15,7 @@ if($bien['jardin']==1){
 }else{
     $jardin='non';
 }
+$img=$bien['img'];
 
 $html= '<h1>Details du bien de reference '.$reference.'</h1><br><hr><br>'
         . '<h1>Type :  '.$bien['type_bien'].'</h1><br><br>'
@@ -23,7 +24,7 @@ $html= '<h1>Details du bien de reference '.$reference.'</h1><br><hr><br>'
         . '<h1>Surface :  '.$bien['surface'].' metre carre</h1><br><br>'
         . '<h1>Jardin :  '.$jardin.'</h1><br><br>'
         . '<h1>Nombres de pieces :  '.$bien['nbpiece'].'</h1><br><br>'
-        . '<h1>Description :  '.$bien['description'].'</h1>';
+        . '<h1>Description :  '.$bien['description'].'</h1><br><br>';
 
 
 ob_start();
@@ -31,6 +32,7 @@ $pdf=new PDF_HTML();
 $pdf->AddPage();
 $pdf->SetFont('Arial');
 $pdf->WriteHTML($html);
+$pdf->Image($img, $x, $y, $w, 100);
 $pdf->Output();
 //$pdf->Output('D','bien.pdf');  //Force le download du pdf
 ob_end_flush();
