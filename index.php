@@ -31,6 +31,10 @@ switch($page){
             include_once("vues/VueBien.php");
             break;
         }
+        case 'pdf' :{
+            include_once("controleurs/controleurPdf.php");
+            break;
+        }
 
 }
 
