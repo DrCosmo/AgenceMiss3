@@ -116,3 +116,10 @@ function ajoutBien( $pdo,
     $ajoutBien->bindValue(':img' , $urlImage);
     $ajoutBien->execute();
 }
+
+function supprimerBien($reference){
+    $bd=connectionBDD();
+    $sql= "DELETE from bien WHERE reference=$reference";
+    $supprBien=$bd->prepare($sql);
+    $supprBien->execute();
+}

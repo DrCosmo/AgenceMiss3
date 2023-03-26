@@ -1,8 +1,5 @@
 <?php
-if(isset($_SESSION['nom'])){
-echo '<h1>Bonjour,'. $_SESSION['nom']," ",$_SESSION['prenom'];   
-}
-else{
+if(!isset($_SESSION['nom'])){
     header("Location: ?page=connexion");
 }
 ?>
