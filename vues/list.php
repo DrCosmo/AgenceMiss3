@@ -8,7 +8,7 @@
     if(!isset($_GET['Recherche']) || isset($_GET['Recherche']) && $_GET['Recherche']=='0'){
         $lesBiens = getToutBiens($pdo);
     }else{
-        $lesBiens = getBiensSearch($pdo, $_GET['noVille'], $_GET['noType']);
+        $lesBiens = getBiensSearch($pdo, $_GET['noVille'], $_GET['noType'], $_GET['noJardin'], $_GET['noPrixMax'], $_GET['noPrixMin'], $_GET['ChoixSurfaceMin'], $_GET['ChoixPiecesMin']);
     }
 ?>
 

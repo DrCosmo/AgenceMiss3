@@ -3,6 +3,9 @@ include_once "inc/header.inc.php";
 include_once 'autres/verifBienReference.php';  
     $reference = $_GET['reference'];
     $leBien = getBienByReference($db, $reference);
+    if(isset($_POST['btnDownload'])){
+        header("Location: ?page=pdf&reference=$reference");
+    }
 ?>
 
 <section class="midpage">
@@ -11,11 +14,12 @@ include_once 'autres/verifBienReference.php';
                 <div class="title">
                     <h1>
                     <?php echo $leBien["type_bien"]." ".$leBien["nbpiece"]." pièces";?></h1>
-
                     </h1>
-                    <span>
-                    <h3><?php echo $leBien['prix']." €";?></h3>
 
+                    <span>
+                        <h3>
+                            <?php echo $leBien['prix']." €";?>
+                        </h3>
                     </span>
                 </div>
 
@@ -39,17 +43,25 @@ include_once 'autres/verifBienReference.php';
                         <span>Jardin</span>
                     </section>
                 </div>
-                </div>
-                <div class="slider">
+            </div>
+            <div class="slider">
                 <img src="<?php echo $leBien['img']?>" alt="Le bien">
             </div>
-
+        </div>
         <article>
-            <h1>
-                Description
-            </h1>
-            <p>
-            <?php echo $leBien['description'];?>
-                            </p>
+            <div class="desc">
+                <h1>
+                    Description
+                </h1>
+                <p>
+                    <?php echo $leBien['description'];?>
+                </p>
+            </div>
+            <aside>
+                <form action="" method="post" target="_blank">
+                    <label for="btnDownload"><img src="img/pdf.png" alt="pdf image"></label>
+                    <input type="submit" value="DOWNLOAD PDF" name="btnDownload" id="btnDownload">
+                </form>  
+            </aside>
         </article>
-
+</section>

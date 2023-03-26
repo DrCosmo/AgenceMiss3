@@ -37,5 +37,13 @@
         <label for="ChoixPrixMax">Prix Maximum : </label>
         <input Type="number" name = "ChoixPrixMax">
     </div>
+    <div class="surfaceMini">
+        <label for="ChoixSurfaceMin">Surface Minimum : </label>
+        <input Type="number" name = "ChoixSurfaceMin">
+    </div>
+    <div class="piecesMini">
+        <label for="ChoixPiecesMin">Nombre de pièces Minimum : </label>
+        <input Type="number" name = "ChoixPiecesMin">
+    </div>
     <input type="submit" id="submit" name="submit" value="Rechercher">
 </form>

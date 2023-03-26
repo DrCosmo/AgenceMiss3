@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1-1.fc36
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : lun. 06 mars 2023 à 03:05
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Hôte : localhost
+-- Généré le : lun. 20 mars 2023 à 13:38
+-- Version du serveur : 10.5.18-MariaDB
+-- Version de PHP : 8.1.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,29 +27,36 @@ SET time_zone = "+00:00";
 -- Structure de la table `bien`
 --
 
-DROP TABLE IF EXISTS `bien`;
-CREATE TABLE IF NOT EXISTS `bien` (
-  `reference` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `bien` (
+  `reference` int(11) NOT NULL,
   `nbpiece` int(11) DEFAULT NULL,
   `jardin` tinyint(1) NOT NULL,
   `surface` float NOT NULL,
   `prix` float NOT NULL,
   `ville` int(11) NOT NULL,
   `type` int(11) NOT NULL,
-  `Description` text COLLATE utf8mb4_bin NOT NULL,
-  `img` varchar(50) COLLATE utf8mb4_bin NOT NULL,
-  PRIMARY KEY (`reference`),
-  KEY `ce_type_bien` (`type`),
-  KEY `ce_ville_bien` (`ville`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  `Description` text NOT NULL,
+  `Img` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Déchargement des données de la table `bien`
 --
 
 INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`, `type`, `Description`, `Img`) VALUES
-(1, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'img/maison_1/maison1.png'),
-(2, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'img/maison_2/maison1.jpg');
+(1, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'images/maison_1/maison1.png'),
+(2, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'images/maison_2/maison1.jpg'),
+(3, 1, 0, 126, 60000, 2, 2, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/appartement_1/appartement_1.png'),
+(4, 52, 0, 1675, 154000, 2, 3, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/immeuble_1/immeuble1.jpg'),
+(5, 12, 1, 386, 168000, 3, 3, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/immeuble_2/immeuble1.jpg'),
+(6, 14, 0, 441, 123000, 1, 3, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi. ', 'img/immeuble_3/immeuble1.jpg'),
+(9, 3, 1, 76, 53800, 1, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_3/maison1.jpg'),
+(10, 3, 1, 182, 220000, 2, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_4/maison_4.png'),
+(11, 3, 0, 130, 135000, 3, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_5/maison_5.png'),
+(12, 3, 0, 230, 312000, 2, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_6/maison_6.png'),
+(13, 2, 0, 4000, 78000000, 1, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_7/maison_1.jpg'),
+(14, 8, 1, 200, 66000, 2, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_8/maison_1.jpg'),
+(15, 3, 1, 100, 2000000, 1, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_9/maison_1.jpg');
 
 -- --------------------------------------------------------
 
@@ -57,14 +64,12 @@ INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`
 -- Structure de la table `membres`
 --
 
-DROP TABLE IF EXISTS `membres`;
-CREATE TABLE IF NOT EXISTS `membres` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) COLLATE utf8mb4_bin NOT NULL,
-  `prenom` varchar(50) COLLATE utf8mb4_bin NOT NULL,
-  `hachage` text COLLATE utf8mb4_bin NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+CREATE TABLE `membres` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `prenom` varchar(50) NOT NULL,
+  `hachage` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Déchargement des données de la table `membres`
@@ -76,8 +81,6 @@ INSERT INTO `membres` (`id`, `nom`, `prenom`, `hachage`) VALUES
 (3, 'Volvic', 'edward', '$argon2id$v=19$m=65536,t=4,p=1$bjBDVW9XRHdOQ29ZQ3M5SQ$dfDY5WK8drJU6xWLBV6TD+M1VsudjYE+i5ACa4rLEzY'),
 (4, 'Pilard', 'théo', '$argon2id$v=19$m=65536,t=4,p=1$THVJcnFkN3A5R0JHSUJLZA$E6x7yppCN7CN9P7Am4EpQyHV5IeJpAMQRIQlxDq2A4k'),
 (5, 'McVicker', 'Tyler', '$argon2id$v=19$m=65536,t=4,p=1$eDJDeU1tN21yRTBpZDRJQw$AnW2X7mhnd/3CLLm5W8uNlUedbho0VSUjZFKK6YhvaY');
-(6, 'Veranda', 'Steaphanie', '$argon2id$v=19$m=65536,t=4,p=1$hBKTUmf5ZiYMO+NiGoPeQw$6JY8U7Zdl02qTBUd5UZH3p2RFKWBKKGQvsFX66N2Pkg');
-(7, 'West', 'Franck', '$argon2id$v=19$m=65536,t=4,p=1$zTNJlQCllBl3jwpTRbskOg$8Vuw/dJdbUEv7FYnWJ/1kiB0Kb5CDTEWjaZ8lLHbf/0');
 
 -- --------------------------------------------------------
 
@@ -85,12 +88,10 @@ INSERT INTO `membres` (`id`, `nom`, `prenom`, `hachage`) VALUES
 -- Structure de la table `type`
 --
 
-DROP TABLE IF EXISTS `type`;
-CREATE TABLE IF NOT EXISTS `type` (
-  `noType` int(11) NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(50) COLLATE utf8mb4_bin NOT NULL,
-  PRIMARY KEY (`noType`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+CREATE TABLE `type` (
+  `noType` int(11) NOT NULL,
+  `libelle` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Déchargement des données de la table `type`
@@ -109,12 +110,10 @@ INSERT INTO `type` (`noType`, `libelle`) VALUES
 -- Structure de la table `ville`
 --
 
-DROP TABLE IF EXISTS `ville`;
-CREATE TABLE IF NOT EXISTS `ville` (
-  `noVille` int(11) NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(50) COLLATE utf8mb4_bin NOT NULL,
-  PRIMARY KEY (`noVille`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+CREATE TABLE `ville` (
+  `noVille` int(11) NOT NULL,
+  `libelle` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Déchargement des données de la table `ville`
@@ -124,6 +123,64 @@ INSERT INTO `ville` (`noVille`, `libelle`) VALUES
 (1, 'Lille'),
 (2, 'Paris'),
 (3, 'Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `bien`
+--
+ALTER TABLE `bien`
+  ADD PRIMARY KEY (`reference`),
+  ADD KEY `ce_type_bien` (`type`),
+  ADD KEY `ce_ville_bien` (`ville`);
+
+--
+-- Index pour la table `membres`
+--
+ALTER TABLE `membres`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `type`
+--
+ALTER TABLE `type`
+  ADD PRIMARY KEY (`noType`);
+
+--
+-- Index pour la table `ville`
+--
+ALTER TABLE `ville`
+  ADD PRIMARY KEY (`noVille`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `bien`
+--
+ALTER TABLE `bien`
+  MODIFY `reference` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT pour la table `membres`
+--
+ALTER TABLE `membres`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `type`
+--
+ALTER TABLE `type`
+  MODIFY `noType` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `ville`
+--
+ALTER TABLE `ville`
+  MODIFY `noVille` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées

@@ -84,6 +84,64 @@ header nav .selected{
     overflow: hidden;
 }
 
+.midpage{
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+    height: 100%;
+    width: 100%;
+}
+
+.midpage .top{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    height: fit-content;
+    width: 100%;
+}
+
+.midpage .top .slider img{
+    height: 250px;
+}
+
+.midpage article{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.midpage article aside form{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: #61a9e7;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+}
+
+.midpage article aside input{
+    appearance: none;
+    padding: 2px 5px;
+    background-color: hsl(0, 0%, 80%);
+    border: 1px solid hsl(0, 0%, 70%);
+    border-radius: 5px;
+}
+
+.midpage article aside:hover input{
+    background-color: #61a9e7;
+    border: 1px solid #5b9dd6;
+}
+
+.midpage article aside label img{
+    height: 50px;
+}
+
 /*
 ==================================
 ==                              ==
@@ -193,6 +251,10 @@ header nav .selected{
 
 #listerBiens a:last-child{
     border: none;
+}
+
+#listerBiens a img{
+    height: 300px;
 }
 
 /*
