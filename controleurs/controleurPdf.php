@@ -32,7 +32,7 @@ $pdf=new PDF_HTML();
 $pdf->AddPage();
 $pdf->SetFont('Arial');
 $pdf->WriteHTML($html);
-$pdf->Image($img, $x, $y, $w, 100);
+$pdf->Image($img, null, null, null, 50);
 $pdf->Output();
 //$pdf->Output('D','bien.pdf');  //Force le download du pdf
 ob_end_flush();

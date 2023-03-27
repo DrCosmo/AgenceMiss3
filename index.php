@@ -1,13 +1,13 @@
 <?php
 session_start();
-include_once "autres/deconnexion.php";
-if(isset($_GET['page'])){
-    $page=$_GET['page'];
-}else{
-    header("location: index.php?page=home");
-    exit();
-}
 include_once "inc/header.inc.php";
+
+if(!isset($_GET['page'])){
+    $page="home";
+}else{
+    $page=$_GET['page'];
+}
+
 switch($page){
 
         case "home" :{
@@ -37,6 +37,7 @@ switch($page){
         }
 
 }
+
 include_once "inc/footer.inc.php";
 
 ?>

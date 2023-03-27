@@ -1,14 +1,11 @@
 <?php
     include_once 'modeles/fonctionsAccesBDD.php';
-    include_once 'vues/list.php';
     $pdo = connectionBDD();
-
-    include_once 'modeles/fonctionsAccesBDD.php';
         
     if(!isset($_GET['Recherche']) || isset($_GET['Recherche']) && $_GET['Recherche']=='0'){
         $lesBiens = getToutBiens($pdo);
     }else{
-        $lesBiens = getBiensSearch($pdo, $_GET['noVille'], $_GET['noType'], $_GET['noJardin'], $_GET['noPrixMax'], $_GET['noPrixMin'], $_GET['ChoixSurfaceMin'], $_GET['ChoixPiecesMin']);
+        $lesBiens = getBiensSearch($pdo, $_GET['noVille'], $_GET['noType'], $_GET['noJardin'], $_GET['noPrixMax'], $_GET['noPrixMin'], $_GET['ChoixSurfaceMin'], $_GET['ChoixPiecesMin'], $_GET['reference']);
     }
 ?>
 

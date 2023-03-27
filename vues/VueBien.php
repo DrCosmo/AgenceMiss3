@@ -1,14 +1,10 @@
 <?php
 include_once "inc/header.inc.php";
-include_once 'autres/verifBienReference.php'; 
+include_once 'autres/verifBienReference.php';  
     $reference = $_GET['reference'];
     $leBien = getBienByReference($db, $reference);
     if(isset($_POST['btnDownload'])){
         header("Location: ?page=pdf&reference=$reference");
-    }
-    if(isset($_POST['supprBien'])){
-        supprimerBien($reference);
-        header("Location: index.php?page=lesbiens");
     }
 ?>
 
@@ -65,12 +61,7 @@ include_once 'autres/verifBienReference.php';
                 <form action="" method="post" target="_blank">
                     <label for="btnDownload"><img src="img/pdf.png" alt="pdf image"></label>
                     <input type="submit" value="DOWNLOAD PDF" name="btnDownload" id="btnDownload">
-                </form>
-                <?php if(isset($_SESSION['nom'])){ ?>
-                <form action="" method="post">
-                    <input type="submit" name="supprBien" value="Supprimer le bien"/>
-                </form>
-            <?php } ?>
+                </form>  
             </aside>
         </article>
 </section>
