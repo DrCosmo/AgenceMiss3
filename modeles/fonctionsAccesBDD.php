@@ -170,6 +170,13 @@ function getBiensSearch($pdo, $ville, $type, $jardin, $prixMax, $prixMin, $surfa
     return $lesBiens;
 }
 
+function supprimerBien($reference){
+    $bd=connectionBDD();
+    $sql= "DELETE from bien WHERE reference=$reference";
+    $supprBien=$bd->prepare($sql);
+    $supprBien->execute();
+}
+
 function formConnexion($name,$passwd){
 
     $bd=connectionBDD();

@@ -15,8 +15,13 @@
         <nav>
             <a href="?page=home" id="navHome"  class="<?php if ( $_GET['page'] == "home" ) { echo "selected"; } ?>">HOME</a>
             <a href="?page=lesbiens" id="navLesBiens" class="<?php if ( $_GET['page'] == "lesbiens" ) { echo "selected"; } ?>">LES BIENS</a>
-            <a href="?page=connexion" id="navConnexion" class="<?php if ( $_GET['page'] == "connexion" ) { echo "selected"; } ?>">CONNEXION</a>
+            <?php if(isset($_SESSION['nom'])){ ?>
             <a href="?page=ajoutbien" id="navAjoutBien" class="<?php if ( $_GET['page'] == "ajoutbien" ) { echo "selected"; } ?>">AJOUT BIEN</a>
+            <?php } 
+            else{ ?>
+            <a href="?page=connexion" id="navConnexion" class="<?php if ( $_GET['page'] == "connexion" ) { echo "selected"; } ?>">CONNEXION</a>
+            <?php } ?>
         </nav>
+        <?php include_once "vuescontroleurs/userBox.php"; ?>
     </header>
     <div class="page">
