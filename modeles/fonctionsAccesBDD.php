@@ -98,7 +98,7 @@ function getBiensSearch($pdo, $ville, $type, $jardin, $prixMax, $prixMin, $surfa
             }
         }
         if ($piecesMin!=NULL) {
-            $sql.=" nbpiece>= :villeChoisi";
+            $sql.=" nbpiece>= :pieceMin";
             if($cpt>0){
                 $sql.=" and";
                 $cpt--;
