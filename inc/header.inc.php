@@ -22,6 +22,6 @@
             <a href="?page=connexion" id="navConnexion" class="<?php if ( $_GET['page'] == "connexion" ) { echo "selected"; } ?>">CONNEXION</a>
             <?php } ?>
         </nav>
-        <?php include_once "vuescontroleurs/userBox.php"; ?>
+        <?php include_once "controleurs/userBox.php"; ?>
     </header>
     <div class="page">
