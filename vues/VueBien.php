@@ -30,22 +30,16 @@ include_once 'autres/verifBienReference.php';
                 <div class="caracteristiques">
                     <section>
                         <h2>L'essentiel</h2>
-                        <span>2 chambre</span>
-                        <span>1 bureau</span>
-                        <span>Terrain 1 675 m²</span>
+                        <span><?php echo $leBien['nbpiece']?> piece</span><br>
+                        <span>Situé à <?php echo $leBien['ville_nom']?></span><br>
+                        <span>Surface de <?php echo $leBien['surface']?> m²</span><br>
                     </section>
-                    <section>
-                        <h2>L'intérieur</h2>
-                        <span>Cheminée</span>
-                        <span>Climatisation</span>
-                        <span>Alarme</span>
-                    </section>
+                    <?php if($leBien['jardin']==true){ ?>
                     <section>
                         <h2>L'extérieur</h2>
-                        <span>Piscine</span>
-                        <span>Terrasse</span>
-                        <span>Jardin</span>
+                        <span>Posséde un jardin</span>
                     </section>
+                    <?php } ?>
                 </div>
             </div>
             <div class="slider">
@@ -68,7 +62,7 @@ include_once 'autres/verifBienReference.php';
                     </form>
                 <?php if(isset($_SESSION['nom'])){ ?>
                 <form action="" method="post">
-                    <input type="submit" name="supprBien" value="Supprimer le bien"/>
+                    <input type="submit" name="supprBien" value="Supprimer le bien">  
                 </form>
             <?php } ?> 
             </aside>
