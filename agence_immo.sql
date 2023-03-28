@@ -44,8 +44,8 @@ CREATE TABLE `bien` (
 --
 
 INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`, `type`, `Description`, `Img`) VALUES
-(1, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'images/maison_1/maison1.png'),
-(2, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'images/maison_2/maison1.jpg'),
+(1, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'img/maison_1/maison1.png'),
+(2, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'img/maison_2/maison1.jpg'),
 (3, 1, 0, 126, 60000, 2, 2, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/appartement_1/appartement_1.png'),
 (4, 52, 0, 1675, 154000, 2, 3, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/immeuble_1/immeuble1.jpg'),
 (5, 12, 1, 386, 168000, 3, 3, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/immeuble_2/immeuble1.jpg'),
