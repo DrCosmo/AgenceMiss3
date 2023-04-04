@@ -8,11 +8,11 @@
             </div>
             <div class="social">
                 <ul>
-                    <li><a href="https://www.facebook.com"><img src="images/facebook.png" alt="facebook.icon"></a></li>
-                    <li><a href="https://www.instagram.com"><img src="images/instagram.png" alt="instagram.icon"></a></li>
-                    <li><a href="https://www.twitter.com"><img src="images/twitter.png" alt="twitter.icon"></a></li>
-                    <li><a href="https://www.linkedin.com"><img src="images/linkedin.png" alt="linkedin.icon"></a></li>
-                    <li><a href="https://www.youtube.com"><img src="images/youtube.png" alt="youtube.icon"></a></li>
+                    <li><a href="https://www.facebook.com"><img src="img/facebook.png" alt="facebook.icon"></a></li>
+                    <li><a href="https://www.instagram.com"><img src="img/instagram.png" alt="instagram.icon"></a></li>
+                    <li><a href="https://www.twitter.com"><img src="img/twitter.png" alt="twitter.icon"></a></li>
+                    <li><a href="https://www.linkedin.com"><img src="img/linkedin.png" alt="linkedin.icon"></a></li>
+                    <li><a href="https://www.youtube.com"><img src="img/youtube.png" alt="youtube.icon"></a></li>
                 </ul>
             </div>
         </footer>

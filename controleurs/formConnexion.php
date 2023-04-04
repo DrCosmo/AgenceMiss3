@@ -1,5 +1,5 @@
 <?php
-include_once 'modeles\fonctionsAccesBDD.php';
+include_once 'modeles/fonctionsAccesBDD.php';
 include_once 'vues/formulaireConnexion.php';
 
 if(isset($_SESSION['name'])){

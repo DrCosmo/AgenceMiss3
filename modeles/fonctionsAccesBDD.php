@@ -32,18 +32,149 @@ function getTypes($pdo){
     return$lesTypes;
 }
 
-function getBiensSearch($pdo, $ville, $type, $jardin,$prixMax ,$prixMin, $surfaceMin, $piecesMin ){
-    $getBien = $pdo->prepare("SELECT description,img,jardin,nbpiece,prix,reference,surface,type.libelle as type_bien,ville.libelle as ville_nom FROM bien INNER JOIN type ON type = noType INNER JOIN ville ON ville = noVille WHERE type= :typeChoisi and ville= :villeChoisi and jardin= :jardinChoisi and (prix BETWEEN :prixMin and :prixMax) and surface >= :surfaceMin and nbpiece >= :piecesMin");
-    $getBien->bindValue(':typeChoisi' , $type);
-    $getBien->bindValue(':villeChoisi' , $ville);
-    $getBien->bindValue(':jardinChoisi' , $jardin);
-    $getBien->bindValue(':prixMin' , $prixMin);
-    $getBien->bindValue(':prixMax' , $prixMax);
-    $getBien->bindValue(':surfaceMin' , $surfaceMin);
-    $getBien->bindValue(':piecesMin' , $piecesMin);
+
+
+function getBiensSearch($pdo, $ville, $type, $jardin, $prixMax, $prixMin, $surfaceMin, $piecesMin, $reference){
+    $cpt=-1;
+    $sql="SELECT description,img,jardin,nbpiece,prix,reference,surface,
+    type.libelle as type_bien,
+    ville.libelle as ville_nom 
+    FROM bien 
+    INNER JOIN type ON type = noType 
+    INNER JOIN ville ON ville = noVille";
+    if ($ville!=NULL || $type!=NULL || $jardin!=NULL || $prixMax!=NULL || $prixMin!=NULL || $surfaceMin!=NULL || $piecesMin!=NULL || $reference!=NULL) {
+        $sql.=" WHERE";
+
+        if ($ville!=NULL) {
+            $cpt++;
+        }
+        if ($type!=NULL) {
+            $cpt++;
+        }
+        if ($jardin!=NULL) {
+            $cpt++;
+        }
+        if ($surfaceMin!=NULL) {
+            $cpt++;
+        }
+        if ($piecesMin!=NULL) {
+            $cpt++;
+        }
+        if ((($prixMax!=NULL && $prixMin==NULL) || ($prixMax==NULL && $prixMin!=NULL))) {
+            $cpt++;
+        }elseif ($prixMax!=NULL && $prixMin!=NULL) {
+            $cpt++;
+        }
+        if ($reference!=NULL) {
+            $cpt++;
+        }
+
+        if ($ville!=NULL) {
+            $sql.=" ville= :villeChoisi";
+            if($cpt>0){
+                $sql.=" and";
+                $cpt--;
+            }
+        }
+        if ($type!=NULL) {
+            $sql.=" type= :typeChoisi";
+            if($cpt>0){
+                $sql.=" and";
+                $cpt--;
+            }
+        }
+        if ($jardin!=NULL) {
+            $sql.=" jardin= :jardinChoisi";
+            if($cpt>0){
+                $sql.=" and";
+                $cpt--;
+            }
+        }
+        if ($surfaceMin!=NULL) {
+            $sql.=" surface>= :surfaceChoisi";
+            if($cpt>0){
+                $sql.=" and";
+                $cpt--;
+            }
+        }
+        if ($piecesMin!=NULL) {
+            $sql.=" nbpiece>= :pieceMin";
+            if($cpt>0){
+                $sql.=" and";
+                $cpt--;
+            }
+        }
+
+        if ((($prixMax!=NULL && $prixMin==NULL) || ($prixMax==NULL && $prixMin!=NULL))) {
+            if ($prixMax!=NULL) {
+                $sql.=" prix<= :prixMin";
+                if($cpt>0){
+                    $sql.=" and";
+                    $cpt--;
+                }
+            }else {
+                $sql.=" prix>= :prixMin";
+                if($cpt>0){
+                    $sql.=" and";
+                    $cpt--;
+                }
+            }
+        }elseif ($prixMax!=NULL && $prixMin!=NULL) {
+            $sql.=" (prix BETWEEN :prixMin and :prixMax)";
+            if($cpt>0){
+                $sql.=" and";
+                $cpt--;
+            }
+        }
+    }
+    if ($reference!=NULL) {
+        $sql.=" reference= :reference";
+        if($cpt>0){
+            $sql.=" and";
+            $cpt--;
+        }
+    }
+
+    $getBien=$pdo->prepare($sql);
+
+    if ($ville!=NULL) {
+        $getBien->bindValue(':villeChoisi' , $ville);
+    }
+    if ($type!=NULL) {
+        $getBien->bindValue(':typeChoisi' , $type);
+    }
+    if ($jardin!=NULL) {
+        $getBien->bindValue(':jardinChoisi' , $jardin);
+    }
+    if ($surfaceMin!=NULL) {
+        $getBien->bindValue(':surfaceChoisi' , $surfaceMin);
+    }
+    if ($piecesMin!=NULL) {
+        $getBien->bindValue(':piecesMin' , $piecesMin);
+    }
+    if ((($prixMax!=NULL && $prixMin==NULL) || ($prixMax==NULL && $prixMin!=NULL))) {
+        if ($prixMax!=NULL) {
+            $getBien->bindValue(':prixMax' , $prixMax);
+        }else {
+            $getBien->bindValue(':prixMin' , $prixMin);
+        }
+    }elseif ($prixMax!=NULL && $prixMin!=NULL) {
+        $getBien->bindValue(':prixMin' , $prixMin);
+        $getBien->bindValue(':prixMax' , $prixMax);
+    }
+    if ($reference!=NULL) {
+        $getBien->bindValue(':reference' , $reference);
+    }
     $executionOk = $getBien->execute();
     $lesBiens=$getBien->fetchAll();
     return $lesBiens;
+}
+
+function supprimerBien($reference){
+    $bd=connectionBDD();
+    $sql= "DELETE from bien WHERE reference=$reference";
+    $supprBien=$bd->prepare($sql);
+    $supprBien->execute();
 }
 
 function formConnexion($name,$passwd){
