@@ -43,7 +43,8 @@ CREATE TABLE `bien` (
 -- Déchargement des données de la table `bien`
 --
 
-INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`, `type`, `Description`, `img`) VALUES
+INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`, `type`, `Description`, `Img`) VALUES
+(1, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'img/maison_1/maison1.png'),
 (2, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'img/maison_2/maison1.jpg'),
 (3, 1, 0, 126, 60000, 2, 2, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/appartement_1/appartement_1.png'),
 (4, 52, 0, 1675, 154000, 2, 3, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/immeuble_1/immeuble1.jpg'),
@@ -52,9 +53,10 @@ INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`
 (9, 3, 1, 76, 53800, 1, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_3/maison1.jpg'),
 (10, 3, 1, 182, 220000, 2, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_4/maison_4.png'),
 (11, 3, 0, 130, 135000, 3, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_5/maison_5.png'),
+(12, 3, 0, 230, 312000, 2, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_6/maison_6.png'),
 (13, 2, 0, 4000, 78000000, 1, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_7/maison_1.jpg'),
+(14, 8, 1, 200, 66000, 2, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_8/maison_1.jpg'),
 (15, 3, 1, 100, 2000000, 1, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_9/maison_1.jpg');
-
 -- --------------------------------------------------------
 
 --
