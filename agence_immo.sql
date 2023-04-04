@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 20 mars 2023 à 13:38
+-- Généré le : mar. 04 avr. 2023 à 11:35
 -- Version du serveur : 10.5.18-MariaDB
 -- Version de PHP : 8.1.16
 
@@ -36,15 +36,14 @@ CREATE TABLE `bien` (
   `ville` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   `Description` text NOT NULL,
-  `Img` varchar(50) NOT NULL
+  `img` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Déchargement des données de la table `bien`
 --
 
-INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`, `type`, `Description`, `Img`) VALUES
-(1, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'img/maison_1/maison1.png'),
+INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`, `type`, `Description`, `img`) VALUES
 (2, 5, 1, 1675, 66000, 3, 1, 'Lorem ipsum dolor sit amet', 'img/maison_2/maison1.jpg'),
 (3, 1, 0, 126, 60000, 2, 2, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/appartement_1/appartement_1.png'),
 (4, 52, 0, 1675, 154000, 2, 3, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/immeuble_1/immeuble1.jpg'),
@@ -53,9 +52,7 @@ INSERT INTO `bien` (`reference`, `nbpiece`, `jardin`, `surface`, `prix`, `ville`
 (9, 3, 1, 76, 53800, 1, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_3/maison1.jpg'),
 (10, 3, 1, 182, 220000, 2, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_4/maison_4.png'),
 (11, 3, 0, 130, 135000, 3, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_5/maison_5.png'),
-(12, 3, 0, 230, 312000, 2, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_6/maison_6.png'),
 (13, 2, 0, 4000, 78000000, 1, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_7/maison_1.jpg'),
-(14, 8, 1, 200, 66000, 2, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_8/maison_1.jpg'),
 (15, 3, 1, 100, 2000000, 1, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis perspiciatis nihil porro numquam blanditiis impedit ipsa perferendis temporibus deserunt eligendi placeat cum rerum dolor eveniet ipsum odio, nemo repellat quidem officia voluptatibus error omnis. Quas, molestias modi.', 'img/maison_9/maison_1.jpg');
 
 -- --------------------------------------------------------
@@ -81,6 +78,32 @@ INSERT INTO `membres` (`id`, `nom`, `prenom`, `hachage`) VALUES
 (3, 'Volvic', 'edward', '$argon2id$v=19$m=65536,t=4,p=1$bjBDVW9XRHdOQ29ZQ3M5SQ$dfDY5WK8drJU6xWLBV6TD+M1VsudjYE+i5ACa4rLEzY'),
 (4, 'Pilard', 'théo', '$argon2id$v=19$m=65536,t=4,p=1$THVJcnFkN3A5R0JHSUJLZA$E6x7yppCN7CN9P7Am4EpQyHV5IeJpAMQRIQlxDq2A4k'),
 (5, 'McVicker', 'Tyler', '$argon2id$v=19$m=65536,t=4,p=1$eDJDeU1tN21yRTBpZDRJQw$AnW2X7mhnd/3CLLm5W8uNlUedbho0VSUjZFKK6YhvaY');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `prix`
+--
+
+CREATE TABLE `prix` (
+  `reference` int(11) NOT NULL,
+  `prixMin` int(11) NOT NULL,
+  `prixMax` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `recherche`
+--
+
+CREATE TABLE `recherche` (
+  `id` int(11) NOT NULL,
+  `surface` int(11) NOT NULL,
+  `date` int(11) NOT NULL,
+  `ville` int(11) NOT NULL,
+  `tranchePrix` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -143,6 +166,20 @@ ALTER TABLE `membres`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `prix`
+--
+ALTER TABLE `prix`
+  ADD PRIMARY KEY (`reference`);
+
+--
+-- Index pour la table `recherche`
+--
+ALTER TABLE `recherche`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ce_ville_recherche` (`ville`),
+  ADD KEY `ce_prix_recherche` (`tranchePrix`);
+
+--
 -- Index pour la table `type`
 --
 ALTER TABLE `type`
@@ -192,6 +229,13 @@ ALTER TABLE `ville`
 ALTER TABLE `bien`
   ADD CONSTRAINT `ce_type_bien` FOREIGN KEY (`type`) REFERENCES `type` (`noType`),
   ADD CONSTRAINT `ce_ville_bien` FOREIGN KEY (`ville`) REFERENCES `ville` (`noVille`);
+
+--
+-- Contraintes pour la table `recherche`
+--
+ALTER TABLE `recherche`
+  ADD CONSTRAINT `ce_prix_recherche` FOREIGN KEY (`tranchePrix`) REFERENCES `prix` (`reference`),
+  ADD CONSTRAINT `ce_ville_recherche` FOREIGN KEY (`ville`) REFERENCES `ville` (`noVille`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
