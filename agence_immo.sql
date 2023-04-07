@@ -91,7 +91,7 @@ CREATE TABLE `prix` (
   `reference` int(11) NOT NULL,
   `prixMin` int(11) NOT NULL,
   `prixMax` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ CREATE TABLE `recherche` (
   `date` int(11) NOT NULL,
   `ville` int(11) NOT NULL,
   `tranchePrix` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
