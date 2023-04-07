@@ -1,6 +1,5 @@
 <?php
-
-include "modeles/fonctionsAccesBDD.php";
+include_once "modeles/fonctionsAccesBDD.php";
 
 $lepdo=connectionBDD();
 
@@ -23,7 +22,6 @@ if(isset($_POST['submit'])){
     $_POST['ChoixSurfaceMin'],
     $_POST['ChoixPiecesMin'],
     $_POST['searchRef']);
-    
-    //header("Location: /index.php?page=lesbiens&Recherche=1&reference$noReference&noVille=$noVille&noType=$noType&noJardin=$noJardin&prix=$prix&ChoixSurfaceMin=$surfaceMin&ChoixPiecesMin=$piecesMin");
-    exit;
+    header("Location: /index.php?page=lesbiens&Recherche=1&reference=$noReference&noVille=$noVille&noType=$noType&noJardin=$noJardin&prix=$prix&ChoixSurfaceMin=$surfaceMin&ChoixPiecesMin=$piecesMin");
 }
+?>
