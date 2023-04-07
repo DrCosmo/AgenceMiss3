@@ -7,7 +7,9 @@ if(isset($_GET['page'])){
     header("location: index.php?page=home");
     exit();
 }
+
 include_once "inc/header.inc.php";
+
 switch($page){
 
         case "home" :{

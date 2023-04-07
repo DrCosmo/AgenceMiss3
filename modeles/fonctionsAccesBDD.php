@@ -32,9 +32,17 @@ function getTypes($pdo){
     return$lesTypes;
 }
 
+function getPrix($pdo){
+    $prixSql = $pdo->prepare('SELECT reference,prixMin,prixMax FROM prix');
+    $prixSql->execute();
+    $lesPrix = $prixSql->fetchAll();
+    
+    return $lesPrix;
+}
 
 
-function getBiensSearch($pdo, $ville, $type, $jardin, $prixMax, $prixMin, $surfaceMin, $piecesMin, $reference){
+
+function getBiensSearch($pdo, $ville, $type, $jardin, $prix, $surfaceMin, $piecesMin, $reference){
     $cpt=-1;
     $sql="SELECT description,img,jardin,nbpiece,prix,reference,surface,
     type.libelle as type_bien,
@@ -42,7 +50,7 @@ function getBiensSearch($pdo, $ville, $type, $jardin, $prixMax, $prixMin, $surfa
     FROM bien 
     INNER JOIN type ON type = noType 
     INNER JOIN ville ON ville = noVille";
-    if ($ville!=NULL || $type!=NULL || $jardin!=NULL || $prixMax!=NULL || $prixMin!=NULL || $surfaceMin!=NULL || $piecesMin!=NULL || $reference!=NULL) {
+    if ($ville!=NULL || $type!=NULL || $jardin!=NULL || $prix!=NULL || $surfaceMin!=NULL || $piecesMin!=NULL || $reference!=NULL) {
         $sql.=" WHERE";
 
         if ($ville!=NULL) {
@@ -60,9 +68,7 @@ function getBiensSearch($pdo, $ville, $type, $jardin, $prixMax, $prixMin, $surfa
         if ($piecesMin!=NULL) {
             $cpt++;
         }
-        if ((($prixMax!=NULL && $prixMin==NULL) || ($prixMax==NULL && $prixMin!=NULL))) {
-            $cpt++;
-        }elseif ($prixMax!=NULL && $prixMin!=NULL) {
+        if ($prix!=NULL) {
             $cpt++;
         }
         if ($reference!=NULL) {
@@ -98,40 +104,27 @@ function getBiensSearch($pdo, $ville, $type, $jardin, $prixMax, $prixMin, $surfa
             }
         }
         if ($piecesMin!=NULL) {
-            $sql.=" nbpiece>= :pieceMin";
+            $sql.=" nbpiece>=:piecesMin";
             if($cpt>0){
                 $sql.=" and";
                 $cpt--;
             }
         }
 
-        if ((($prixMax!=NULL && $prixMin==NULL) || ($prixMax==NULL && $prixMin!=NULL))) {
-            if ($prixMax!=NULL) {
-                $sql.=" prix<= :prixMin";
-                if($cpt>0){
-                    $sql.=" and";
-                    $cpt--;
-                }
-            }else {
-                $sql.=" prix>= :prixMin";
-                if($cpt>0){
-                    $sql.=" and";
-                    $cpt--;
-                }
-            }
-        }elseif ($prixMax!=NULL && $prixMin!=NULL) {
-            $sql.=" (prix BETWEEN :prixMin and :prixMax)";
+        if ($prix!=NULL) {
+            $sql.=" prix BETWEEN (select prixMin from prix where reference=:refPrix1) and (select prixMax from prix where reference=:refPrix2)";
             if($cpt>0){
                 $sql.=" and";
                 $cpt--;
             }
         }
-    }
-    if ($reference!=NULL) {
-        $sql.=" reference= :reference";
-        if($cpt>0){
-            $sql.=" and";
-            $cpt--;
+
+        if ($reference!=NULL) {
+            $sql.=" reference= :reference";
+            if($cpt>0){
+                $sql.=" and";
+                $cpt--;
+            }
         }
     }
 
@@ -152,15 +145,9 @@ function getBiensSearch($pdo, $ville, $type, $jardin, $prixMax, $prixMin, $surfa
     if ($piecesMin!=NULL) {
         $getBien->bindValue(':piecesMin' , $piecesMin);
     }
-    if ((($prixMax!=NULL && $prixMin==NULL) || ($prixMax==NULL && $prixMin!=NULL))) {
-        if ($prixMax!=NULL) {
-            $getBien->bindValue(':prixMax' , $prixMax);
-        }else {
-            $getBien->bindValue(':prixMin' , $prixMin);
-        }
-    }elseif ($prixMax!=NULL && $prixMin!=NULL) {
-        $getBien->bindValue(':prixMin' , $prixMin);
-        $getBien->bindValue(':prixMax' , $prixMax);
+    if ($prix!=NULL) {
+        $getBien->bindValue(':refPrix2' , $prix);
+        $getBien->bindValue(':refPrix1' , $prix);
     }
     if ($reference!=NULL) {
         $getBien->bindValue(':reference' , $reference);
