@@ -234,3 +234,51 @@ function ajoutBien( $pdo,
     $ajoutBien->bindValue(':img' , $urlImage);
     $ajoutBien->execute();
 }
+
+function insertRecherche($pdo, $dateJ, $tranchePrix){
+    $sql="INSERT INTO recherche (`id`,`date`";
+
+    //rajout pour initier les colonnes de la table dans lesquels une valeur sera rentré
+        if ($tranchePrix!=NULL) {
+            $sql.=",`tranchePrix`";
+        }
+    //fin de ce trucs
+
+    //on vas faire de meme mais avec le prepare des valeurs mtn
+    $sql.=") VALUES (NULL,':dateJ'";
+        if ($tranchePrix!=NULL) {
+            $sql.=",':tranchePrix'";
+        }
+    //re fin de ce truc
+    $sql.=")";
+
+    //sql pret
+
+    $insertRecherche=$pdo->prepare($sql);
+    $insertRecherche->bindValue(':dateJ', $dateJ);
+
+    //Bind les values mtn si elle ne sont pas nulls
+        if ($tranchePrix!=NULL) {
+            $insertRecherche->bindValue(':tranchePrix', $tranchePrix);
+        }
+    //Fin des bindValues
+
+    $insertRecherche->execute();
+    //return $sql //Si jamais il faut verif le sql
+}
+
+function getNbStatsPrix($pdo){
+    $sql="SELECT COUNT(tranchePrix) FROM recherche";
+    $nbPrix=$pdo->prepare($sql);
+    $executionOK=$nbPrix->execute();
+    $nbP=$nbPrix->fetchAll();
+    return $nbP;
+}
+
+function getStatsPrix($pdo){
+    $sql="SELECT tranchePrix,COUNT(tranchePrix) FROM `recherche` group by tranchePrix";
+    $statsPrix=$pdo->prepare($sql);
+    $executionOK=$statsPrix->execute();
+    $stats=$statsPrix->fetchAll();
+    return $stats;
+}

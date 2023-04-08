@@ -240,6 +240,23 @@ ALTER TABLE `recherche`
   ADD CONSTRAINT `ce_ville_recherche` FOREIGN KEY (`ville`) REFERENCES `ville` (`noVille`);
 COMMIT;
 
+--
+-- Jeu pour la recherche rajouter si il faut
+--
+
+INSERT INTO `recherche` (`id`, `surface`, `date`, `ville`, `tranchePrix`) 
+VALUES ('1', '40', '2023', '1', '1'), 
+('2', NULL, '2023', '2', NULL), 
+('3', NULL, '2022', '2', NULL), 
+('4', '50', '2021', NULL, '2'), 
+('5', '20', '2023', '3', '11'), 
+('6', NULL, '2023', NULL, '9'), 
+('7', NULL, '2023', NULL, '5'), 
+('8', NULL, '2023', '3', NULL), 
+('9', NULL, '2023', '2', NULL), 
+('10', NULL, '2023', NULL, '3')
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

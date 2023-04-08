@@ -37,6 +37,10 @@ switch($page){
             include_once("controleurs/controleurPdf.php");
             break;
         }
+        case 'stats' :{
+            include_once("controleurs/controStats.php");
+            break;
+        }
 
 }
 
