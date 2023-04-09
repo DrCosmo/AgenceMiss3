@@ -235,12 +235,15 @@ function ajoutBien( $pdo,
     $ajoutBien->execute();
 }
 
-function insertRecherche($pdo, $dateJ, $tranchePrix){
+function insertRecherche($pdo, $dateJ, $tranchePrix, $surface){
     $sql="INSERT INTO recherche (`id`,`date`";
 
     //rajout pour initier les colonnes de la table dans lesquels une valeur sera rentré
         if ($tranchePrix!=NULL) {
             $sql.=",`tranchePrix`";
+        }
+        if ($surface!=NULL) {
+            $sql.=",`surface`";
         }
     //fin de ce trucs
 
@@ -248,6 +251,9 @@ function insertRecherche($pdo, $dateJ, $tranchePrix){
     $sql.=") VALUES (NULL,':dateJ'";
         if ($tranchePrix!=NULL) {
             $sql.=",':tranchePrix'";
+        }
+        if ($surface!=NULL) {
+            $sql.=",':surface'";
         }
     //re fin de ce truc
     $sql.=")";
@@ -260,6 +266,9 @@ function insertRecherche($pdo, $dateJ, $tranchePrix){
     //Bind les values mtn si elle ne sont pas nulls
         if ($tranchePrix!=NULL) {
             $insertRecherche->bindValue(':tranchePrix', $tranchePrix);
+        }
+        if ($surface!=NULL) {
+            $insertRecherche->bindValue(':surface', $surface);
         }
     //Fin des bindValues
 
@@ -281,4 +290,12 @@ function getStatsPrix($pdo){
     $executionOK=$statsPrix->execute();
     $stats=$statsPrix->fetchAll();
     return $stats;
+}
+
+function getSurface($pdo){
+    $sql="SELECT surface FROM bien";
+    $surface=$pdo->prepare($sql);
+    $executionOK=$surface->execute();
+    $result=$surface->fetchAll();
+    return $result;
 }

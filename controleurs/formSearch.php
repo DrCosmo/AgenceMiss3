@@ -22,6 +22,6 @@ if(isset($_POST['submit'])){
     $_POST['ChoixSurfaceMin'],
     $_POST['ChoixPiecesMin'],
     $_POST['searchRef']);
-    header("Location: /index.php?page=lesbiens&Recherche=1&reference=$noReference&noVille=$noVille&noType=$noType&noJardin=$noJardin&prix=$prix&ChoixSurfaceMin=$surfaceMin&ChoixPiecesMin=$piecesMin");
+    header("Location: ?page=lesbiens&Recherche=1&reference=$noReference&noVille=$noVille&noType=$noType&noJardin=$noJardin&prix=$prix&ChoixSurfaceMin=$surfaceMin&ChoixPiecesMin=$piecesMin");
 }
 ?>
