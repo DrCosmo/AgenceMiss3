@@ -30,7 +30,7 @@ var_dump($nbP);
 echo "</br></br></br>NB de recherche sur une tranche de prix au total : ".$nbP['COUNT(tranchePrix)']."</br></br></br>";
 
 foreach ($stats as $uneStats) {
-    echo "La tranche de prix : ".$uneStats['tranchePrix'];
+    echo "La tranche de prix : ".$uneStats['prixMin']."--".$uneStats['prixMax'];
     echo "</br>";
     echo "Nb qu'il y a : ".$uneStats['COUNT(tranchePrix)'];
     echo "</br></br>";

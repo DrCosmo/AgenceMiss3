@@ -285,7 +285,7 @@ function getNbStatsPrix($pdo){
 }
 
 function getStatsPrix($pdo){
-    $sql="SELECT tranchePrix,COUNT(tranchePrix) FROM `recherche` group by tranchePrix";
+    $sql="SELECT prix.prixMin,prix.prixMax,COUNT(tranchePrix) FROM `recherche` inner join prix on prix.reference=recherche.tranchePrix group by tranchePrix";
     $statsPrix=$pdo->prepare($sql);
     $executionOK=$statsPrix->execute();
     $stats=$statsPrix->fetchAll();
