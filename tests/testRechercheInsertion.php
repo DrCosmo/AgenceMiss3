@@ -4,10 +4,11 @@ include_once "../modeles/fonctionsAccesBDD.php";
 
 $lepdo=connectionBDD();
 
-$date='2025';
+$today = date('y-m-j');
 $prix='1';
 
-//$sql=insertRecherche($lepdo, $date, NULL);
+insertRecherche($lepdo, $today, NULL, NULL);
+//$sql=insertRecherche($lepdo, $today, NULL, NULL);
 
 //var_dump($sql);
 

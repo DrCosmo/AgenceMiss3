@@ -5,6 +5,8 @@ $lepdo=connectionBDD();
 
 include_once "vues/search.php";
 
+$today = date('y-m-j');
+
 if(isset($_POST['submit'])){
 
     $noReference=$_POST['searchRef'];
@@ -14,6 +16,10 @@ if(isset($_POST['submit'])){
     $prix=$_POST['choixPrix'];
     $surfaceMin=$_POST['ChoixSurfaceMin'];
     $piecesMin=$_POST['ChoixPiecesMin'];
+
+    if ($_POST['choixPrix']!=NULL || $_POST['ChoixSurfaceMin']!=NULL) {
+        insertRecherche($lepdo, $today, $_POST['choixPrix'],$_POST['ChoixSurfaceMin']);
+    }
 
     $recherche=getBiensSearch($lepdo, $_POST['villeList'], 
     $_POST['typeList'],

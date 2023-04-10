@@ -273,7 +273,7 @@ function insertRecherche($pdo, $dateJ, $tranchePrix, $surface){
     //Fin des bindValues
 
     $insertRecherche->execute();
-    //return $sql //Si jamais il faut verif le sql
+    //return $sql; //Si jamais il faut verif le sql
 }
 
 function getNbStatsPrix($pdo){
