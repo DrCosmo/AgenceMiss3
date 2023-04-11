@@ -293,7 +293,7 @@ function getStatsPrix($pdo){
 }
 
 function getSurface($pdo){
-    $sql="SELECT surface FROM bien";
+    $sql="SELECT surface, COUNT(surface) FROM recherche GROUP BY surface;";
     $surface=$pdo->prepare($sql);
     $executionOK=$surface->execute();
     $result=$surface->fetchAll();
