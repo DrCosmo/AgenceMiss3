@@ -101,10 +101,10 @@ CREATE TABLE `prix` (
 
 CREATE TABLE `recherche` (
   `id` int(11) NOT NULL,
-  `surface` int(11),
-  `date` int(11),
-  `ville` int(11),
-  `tranchePrix` int(11)
+  `surface` int(11) NULL,
+  `date` date,
+  `ville` int(11) NULL,
+  `tranchePrix` int(11) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
