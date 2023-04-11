@@ -250,10 +250,10 @@ function insertRecherche($pdo, $dateJ, $tranchePrix, $surface){
     //on vas faire de meme mais avec le prepare des valeurs mtn
     $sql.=") VALUES (NULL,':dateJ'";
         if ($tranchePrix!=NULL) {
-            $sql.=",':tranchePrix'";
+            $sql.=",:tranchePrix";
         }
         if ($surface!=NULL) {
-            $sql.=",':surface'";
+            $sql.=",:surface";
         }
     //re fin de ce truc
     $sql.=")";
