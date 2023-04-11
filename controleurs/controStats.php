@@ -9,6 +9,9 @@ include_once "vues/stats.php";
 if (isset($_POST['sub'])) {
   $date1=$_POST['date1'];
   $date2=$_POST['date2'];
+  $statsPrix=getStatsPrix($lepdo, $date1, $date2);
+}else {
+  $statsPrix=getStatsPrix($lepdo, NULL, NULL);
 }
 
 ?>
@@ -24,7 +27,7 @@ if (isset($_POST['sub'])) {
         var data = google.visualization.arrayToDataTable([
           ['TranchePrix', 'NbRecherche'],
           <?php
-            foreach (getStatsPrix($lepdo) as $uneStat) {
+            foreach ($statsPrix as $uneStat) {
                 echo "['".$uneStat['prixMin']."--".$uneStat['prixMax']."',".$uneStat['COUNT(tranchePrix)']."],";
             }
           ?>

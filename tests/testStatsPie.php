@@ -4,6 +4,15 @@ include_once "../modeles/fonctionsAccesBDD.php";
 $lepdo=connectionBDD();
 include_once "../vues/stats.php";
 
+if (isset($_POST['sub'])) {
+  $date1=$_POST['date1'];
+  $date2=$_POST['date2'];
+  $statsPrix=getStatsPrix($lepdo, $date1, $date2);
+  var_dump($statsPrix);
+}else {
+  $statsPrix=getStatsPrix($lepdo, NULL, NULL);
+}
+
 ?>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -16,7 +25,7 @@ include_once "../vues/stats.php";
         var data = google.visualization.arrayToDataTable([
           ['TranchePrix', 'NbRecherche'],
           <?php
-            foreach (getStatsPrix($lepdo) as $uneStat) {
+            foreach ($statsPrix as $uneStat) {
                 echo "['".$uneStat['prixMin']."--".$uneStat['prixMax']."',".$uneStat['COUNT(tranchePrix)']."],";
             }
           ?>

@@ -17,5 +17,4 @@
             <div id="chartSurface" style="width: 400px; height: 300px"></div>
         </div>
     </div>
-    
 </div>

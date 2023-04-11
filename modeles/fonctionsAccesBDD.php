@@ -284,9 +284,21 @@ function getNbStatsPrix($pdo){
     return $nbP;
 }
 
-function getStatsPrix($pdo){
-    $sql="SELECT prix.prixMin,prix.prixMax,COUNT(tranchePrix) FROM `recherche` inner join prix on prix.id=recherche.tranchePrix group by tranchePrix";
+function getStatsPrix($pdo, $date1, $date2){
+    //Prepa du sql
+    $sql="SELECT prix.prixMin,prix.prixMax,COUNT(tranchePrix) FROM `recherche` inner join prix on prix.id=recherche.tranchePrix";
+
+    if($date1!=NULL && $date2!=NULL){
+        $sql.=" where date BETWEEN :date1 and :date2";
+    }
+
+    $sql.=" group by tranchePrix";
+    //fin prepa sql
     $statsPrix=$pdo->prepare($sql);
+    if ($date1!=NULL && $date2!=NULL) {
+        $statsPrix->bindValue(':date1', $date1);
+        $statsPrix->bindValue(':date2', $date2);
+    }
     $executionOK=$statsPrix->execute();
     $stats=$statsPrix->fetchAll();
     return $stats;
