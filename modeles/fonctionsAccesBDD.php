@@ -304,9 +304,17 @@ function getStatsPrix($pdo, $date1, $date2){
     return $stats;
 }
 
-function getSurface($pdo){
-    $sql="SELECT surface, COUNT(surface) FROM recherche GROUP BY surface;";
+function getSurface($pdo, $date1, $date2){
+    $sql="SELECT surface, COUNT(surface) FROM recherche";
+    if($date1!=NULL && $date2!=NULL){
+        $sql.=" where date BETWEEN :date1 and :date2";
+    }
+    $sql.=" GROUP BY surface";
     $surface=$pdo->prepare($sql);
+    if ($date1!=NULL && $date2!=NULL) {
+        $surface->bindValue(':date1', $date1);
+        $surface->bindValue(':date2', $date2);
+    }
     $executionOK=$surface->execute();
     $result=$surface->fetchAll();
     return $result;
