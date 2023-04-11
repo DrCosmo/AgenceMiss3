@@ -184,7 +184,7 @@ ALTER TABLE `membres`
 -- Index pour la table `prix`
 --
 ALTER TABLE `prix`
-  ADD PRIMARY KEY (`reference`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `recherche`
@@ -249,7 +249,7 @@ ALTER TABLE `bien`
 -- Contraintes pour la table `recherche`
 --
 ALTER TABLE `recherche`
-  ADD CONSTRAINT `ce_prix_recherche` FOREIGN KEY (`tranchePrix`) REFERENCES `prix` (`reference`),
+  ADD CONSTRAINT `ce_prix_recherche` FOREIGN KEY (`tranchePrix`) REFERENCES `prix` (`id`),
   ADD CONSTRAINT `ce_ville_recherche` FOREIGN KEY (`ville`) REFERENCES `ville` (`noVille`);
 COMMIT;
 
