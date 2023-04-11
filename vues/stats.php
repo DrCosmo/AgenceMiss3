@@ -7,7 +7,7 @@
     <div class="stats">
         <div class="statsPrix">
             <h2>Statistique de Tranche de prix selectioné :</h2>
-            <div id="piePrix" style="width: 400px; height: 300px"></div>
+            <div id="piePrix" style="width: 500px; height: 400px"></div>
         </div>
         <div class="statsVille">
             <h2>Statistique de Ville selectioné :</h2>
