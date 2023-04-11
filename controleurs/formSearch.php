@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
     $piecesMin=$_POST['ChoixPiecesMin'];
 
     if ($_POST['choixPrix']!=NULL || $_POST['ChoixSurfaceMin']!=NULL) {
-        insertRecherche($lepdo, $today, $_POST['choixPrix'],$_POST['ChoixSurfaceMin']);
+        //insertRecherche($lepdo, $today, $_POST['choixPrix'],$_POST['ChoixSurfaceMin']);
     }
 
     $recherche=getBiensSearch($lepdo, $_POST['villeList'], 
