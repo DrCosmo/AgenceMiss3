@@ -112,7 +112,7 @@ function getBiensSearch($pdo, $ville, $type, $jardin, $prix, $surfaceMin, $piece
         }
 
         if ($prix!=NULL) {
-            $sql.=" prix BETWEEN (select prixMin from prix where reference=:refPrix1) and (select prixMax from prix where reference=:refPrix2)";
+            $sql.=" prix BETWEEN (select prixMin from prix where id=:refPrix1) and (select prixMax from prix where id=:refPrix2)";
             if($cpt>0){
                 $sql.=" and";
                 $cpt--;
