@@ -88,7 +88,7 @@ INSERT INTO `membres` (`id`, `nom`, `prenom`, `hachage`) VALUES
 --
 
 CREATE TABLE `prix` (
-  `reference` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `prixMin` int(11) NOT NULL,
   `prixMax` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
