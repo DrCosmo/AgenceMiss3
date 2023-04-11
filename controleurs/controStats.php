@@ -6,9 +6,15 @@ $lepdo=connectionBDD();
 
 include_once "vues/stats.php";
 
+if (isset($_POST['sub'])) {
+  $date1=$_POST['date1'];
+  $date2=$_POST['date2'];
+}
+
 ?>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -33,8 +39,6 @@ include_once "vues/stats.php";
         chart.draw(data, options);
       }
     </script>
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);

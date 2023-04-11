@@ -54,7 +54,7 @@
             <?php
             foreach(getPrix($lepdo) as $tranche){
                 ?>
-                <option value="<?php echo $tranche['reference']?>"><?php echo $tranche['prixMin'].' -- '.$tranche['prixMax']?></option>
+                <option value="<?php echo $tranche['id']?>"><?php echo $tranche['prixMin'].' -- '.$tranche['prixMax']?></option>
                 <?php
             }
             ?>

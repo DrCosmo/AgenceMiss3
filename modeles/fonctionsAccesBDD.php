@@ -33,7 +33,7 @@ function getTypes($pdo){
 }
 
 function getPrix($pdo){
-    $prixSql = $pdo->prepare('SELECT reference,prixMin,prixMax FROM prix');
+    $prixSql = $pdo->prepare('SELECT id,prixMin,prixMax FROM prix');
     $prixSql->execute();
     $lesPrix = $prixSql->fetchAll();
     
@@ -285,7 +285,7 @@ function getNbStatsPrix($pdo){
 }
 
 function getStatsPrix($pdo){
-    $sql="SELECT prix.prixMin,prix.prixMax,COUNT(tranchePrix) FROM `recherche` inner join prix on prix.reference=recherche.tranchePrix group by tranchePrix";
+    $sql="SELECT prix.prixMin,prix.prixMax,COUNT(tranchePrix) FROM `recherche` inner join prix on prix.id=recherche.tranchePrix group by tranchePrix";
     $statsPrix=$pdo->prepare($sql);
     $executionOK=$statsPrix->execute();
     $stats=$statsPrix->fetchAll();

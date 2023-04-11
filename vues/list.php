@@ -1,18 +1,12 @@
 <?php
     include_once 'modeles/fonctionsAccesBDD.php';
     $pdo = connectionBDD();
-        
-    if(!isset($_GET['Recherche']) || isset($_GET['Recherche']) && $_GET['Recherche']=='0'){
-        $lesBiens = getToutBiens($pdo);
-    }else{
-        $lesBiens = getBiensSearch($pdo, $_GET['noVille'], $_GET['noType'], $_GET['noJardin'], $_GET['prix'], $_GET['ChoixSurfaceMin'], $_GET['ChoixPiecesMin'], $_GET['reference']);
-    }
 ?>
 
 <div id="listerBiens">
 
     <?php
-        foreach ($lesBiens as $unBien) {
+        foreach ($recherche as $unBien) {
     ?>
 
     <a href="?page=vuebien&reference=<?php echo $unBien["reference"];?>" class="lebien">
