@@ -17,6 +17,7 @@
             <a href="?page=lesbiens" id="navLesBiens" class="<?php if ( $_GET['page'] == "lesbiens" ) { echo "selected"; } ?>">LES BIENS</a>
             <?php if(isset($_SESSION['nom'])){ ?>
             <a href="?page=ajoutbien" id="navAjoutBien" class="<?php if ( $_GET['page'] == "ajoutbien" ) { echo "selected"; } ?>">AJOUT BIEN</a>
+            <a href="?page=stats" id="navStats" class="<?php if ( $_GET['page'] == "stats" ) { echo "selected"; } ?>">STATS</a>
             <?php } 
             else{ ?>
             <a href="?page=connexion" id="navConnexion" class="<?php if ( $_GET['page'] == "connexion" ) { echo "selected"; } ?>">CONNEXION</a>

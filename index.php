@@ -7,7 +7,9 @@ if(isset($_GET['page'])){
     header("location: index.php?page=home");
     exit();
 }
+
 include_once "inc/header.inc.php";
+
 switch($page){
 
         case "home" :{
@@ -33,6 +35,10 @@ switch($page){
         }
         case 'pdf' :{
             include_once("controleurs/controleurPdf.php");
+            break;
+        }
+        case 'stats' :{
+            include_once("controleurs/controStats.php");
             break;
         }
 

@@ -48,22 +48,25 @@
         </select>
     </div>
     <div class="choosePrix">
-        <div class="prixMax">
-            <label for="ChoixPrixMin">Prix Minimum : </label>
-            <input Type="number" name = "ChoixPrixMin">
-        </div>
-        <div class="prixMin">
-            <label for="ChoixPrixMax">Prix Maximum : </label>
-            <input Type="number" name = "ChoixPrixMax">
-        </div>
+        <label for="choixPrix">Tranche de prix : </label>
+        <select name="choixPrix" id="listChoixPrix">
+            <option value="" selected>--</option>
+            <?php
+            foreach(getPrix($lepdo) as $tranche){
+                ?>
+                <option value="<?php echo $tranche['id']?>"><?php echo $tranche['prixMin'].' -- '.$tranche['prixMax']?></option>
+                <?php
+            }
+            ?>
+        </select>
     </div>
     <div class="surfaceMini">
         <label for="ChoixSurfaceMin">Surface Minimum : </label>
-        <input Type="number" name = "ChoixSurfaceMin">
+        <input Type="number" name = "ChoixSurfaceMin" min="0">
     </div>
     <div class="piecesMini">
         <label for="ChoixPiecesMin">Nombre de pièces Minimum : </label>
-        <input Type="number" name = "ChoixPiecesMin">
+        <input Type="number" name = "ChoixPiecesMin" min="0">
     </div>
     <input type="submit" id="submit" name="submit" value="Rechercher">
 </form>

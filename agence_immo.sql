@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 20 mars 2023 à 13:38
+-- Généré le : mar. 04 avr. 2023 à 11:35
 -- Version du serveur : 10.5.18-MariaDB
 -- Version de PHP : 8.1.16
 
@@ -36,7 +36,7 @@ CREATE TABLE `bien` (
   `ville` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   `Description` text NOT NULL,
-  `Img` varchar(50) NOT NULL
+  `img` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -80,6 +80,45 @@ INSERT INTO `membres` (`id`, `nom`, `prenom`, `hachage`) VALUES
 (3, 'Volvic', 'edward', '$argon2id$v=19$m=65536,t=4,p=1$bjBDVW9XRHdOQ29ZQ3M5SQ$dfDY5WK8drJU6xWLBV6TD+M1VsudjYE+i5ACa4rLEzY'),
 (4, 'Pilard', 'théo', '$argon2id$v=19$m=65536,t=4,p=1$THVJcnFkN3A5R0JHSUJLZA$E6x7yppCN7CN9P7Am4EpQyHV5IeJpAMQRIQlxDq2A4k'),
 (5, 'McVicker', 'Tyler', '$argon2id$v=19$m=65536,t=4,p=1$eDJDeU1tN21yRTBpZDRJQw$AnW2X7mhnd/3CLLm5W8uNlUedbho0VSUjZFKK6YhvaY');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `prix`
+--
+
+CREATE TABLE `prix` (
+  `id` int(11) NOT NULL,
+  `prixMin` int(11) NOT NULL,
+  `prixMax` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+
+INSERT INTO `prix` (`id`, `prixMin`, `prixMax`) VALUES
+(1, 0, 100000),
+(2, 100000, 200000),
+(3, 200000, 300000),
+(4, 300000, 400000),
+(5, 400000, 500000),
+(6, 500000, 600000),
+(7, 600000, 700000),
+(8, 700000, 800000),
+(9, 800000, 900000),
+(10, 900000, 1000000),
+(11, 1000000, 999999999);
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `recherche`
+--
+
+CREATE TABLE `recherche` (
+  `id` int(11) NOT NULL,
+  `surface` int(11) NULL,
+  `date` date,
+  `ville` int(11) NULL,
+  `tranchePrix` int(11) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -142,6 +181,20 @@ ALTER TABLE `membres`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `prix`
+--
+ALTER TABLE `prix`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `recherche`
+--
+ALTER TABLE `recherche`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ce_ville_recherche` (`ville`),
+  ADD KEY `ce_prix_recherche` (`tranchePrix`);
+
+--
 -- Index pour la table `type`
 --
 ALTER TABLE `type`
@@ -191,7 +244,31 @@ ALTER TABLE `ville`
 ALTER TABLE `bien`
   ADD CONSTRAINT `ce_type_bien` FOREIGN KEY (`type`) REFERENCES `type` (`noType`),
   ADD CONSTRAINT `ce_ville_bien` FOREIGN KEY (`ville`) REFERENCES `ville` (`noVille`);
+
+--
+-- Contraintes pour la table `recherche`
+--
+ALTER TABLE `recherche`
+  ADD CONSTRAINT `ce_prix_recherche` FOREIGN KEY (`tranchePrix`) REFERENCES `prix` (`id`),
+  ADD CONSTRAINT `ce_ville_recherche` FOREIGN KEY (`ville`) REFERENCES `ville` (`noVille`);
 COMMIT;
+
+--
+-- Jeu pour la recherche rajouter si il faut
+--
+
+INSERT INTO `recherche` (`id`, `surface`, `date`, `ville`, `tranchePrix`) 
+VALUES ('1', '40', '2023-04-05', '1', '1'), 
+('2', NULL, '2023-01-05', '2', NULL), 
+('3', NULL, '2022-06-06', '2', NULL), 
+('4', '50', '2021-04-22', NULL, '2'), 
+('5', '20', '2023-01-01', '3', '11'), 
+('6', NULL, '2023-04-05', NULL, '9'), 
+('7', NULL, '2023-04-05', NULL, '5'), 
+('8', NULL, '2023-02-05', '3', NULL), 
+('9', NULL, '2023-12-03', '2', NULL), 
+('10', NULL, '2023-04-05', NULL, '3')
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
