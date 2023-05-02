@@ -276,18 +276,10 @@ function insertRecherche($pdo, $dateJ, $tranchePrix, $surface){
             $insertRecherche->bindValue(':surface', $surface);
         }
     //Fin des bindValues
-    */
+    
 
-    //$insertRecherche->execute();
-    //return $sql; //Si jamais il faut verif le sql
-}
-
-function getNbStatsPrix($pdo){
-    $sql="SELECT COUNT(tranchePrix) FROM recherche";
-    $nbPrix=$pdo->prepare($sql);
-    $executionOK=$nbPrix->execute();
-    $nbP=$nbPrix->fetchAll();
-    return $nbP;
+    $insertRecherche->execute();
+    //return $sql; //Si jamais il faut verif le sql*/
 }
 
 function getStatsPrix($pdo, $date1, $date2){
