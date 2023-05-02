@@ -7,12 +7,18 @@ $lepdo=connectionBDD();
 $today = date('y-m-j');
 $prix='1';
 
-insertRecherche($lepdo, $today, NULL, NULL);
-//$sql=insertRecherche($lepdo, $today, NULL, NULL);
+echo 'avant insert recherche.';
+
+insertRecherche($lepdo, '2004-10-26', NULL, NULL);
+//$sql=insertRecherche($lepdo, '2004-10-26', 1, 1);
 
 //var_dump($sql);
 
 echo "</br></br>";
+
+echo 'apres insert recherche.';
+
+/*
 
 $statSurface=getSurface($lepdo);
 
@@ -41,3 +47,4 @@ foreach ($statSurface as $uneStatSurface) {
     echo "Surface : ".$uneStatSurface['surface'];
     echo "</br>";
 }
+*/

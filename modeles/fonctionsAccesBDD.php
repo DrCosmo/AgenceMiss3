@@ -236,8 +236,13 @@ function ajoutBien( $pdo,
 }
 
 function insertRecherche($pdo, $dateJ, $tranchePrix, $surface){
-    $sql="INSERT INTO recherche (`id`,`date`";
+    $sql="INSERT INTO recherche (`id`,`date`,`tranchePrix`,`surface`) VALUES (NULL, :datej, :trancheprix, :surface)";
+    $insertRecherche=$pdo->prepare($sql);
+    $insertRecherche->execute(array(':datej' => $dateJ, ':trancheprix' => $tranchePrix, ':surface' => $surface));
 
+    //var_dump($insertRecherche);
+    //echo "$insertRecherche";
+    /*
     //rajout pour initier les colonnes de la table dans lesquels une valeur sera rentré
         if ($tranchePrix!=NULL) {
             $sql.=",`tranchePrix`";
@@ -271,8 +276,9 @@ function insertRecherche($pdo, $dateJ, $tranchePrix, $surface){
             $insertRecherche->bindValue(':surface', $surface);
         }
     //Fin des bindValues
+    */
 
-    $insertRecherche->execute();
+    //$insertRecherche->execute();
     //return $sql; //Si jamais il faut verif le sql
 }
 
