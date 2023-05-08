@@ -16,7 +16,7 @@
     <div class="searchVille">
         <label for="villeList">Ville : </label>
         <select name="villeList" id="villeList">
-            <option value="" selected> -- </option>
+            <option value="none" selected> -- </option>
             <?php
             foreach(getVilles($lepdo) as $ville){
                 ?>
@@ -50,7 +50,7 @@
     <div class="choosePrix">
         <label for="choixPrix">Tranche de prix : </label>
         <select name="choixPrix" id="listChoixPrix">
-            <option value="" selected>--</option>
+            <option value="none" selected>--</option>
             <?php
             foreach(getPrix($lepdo) as $tranche){
                 ?>

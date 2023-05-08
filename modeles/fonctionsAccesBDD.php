@@ -235,53 +235,11 @@ function ajoutBien( $pdo,
     $ajoutBien->execute();
 }
 
-function insertRecherche($pdo, $dateJ, $tranchePrix, $surface){
-    $sql="INSERT INTO recherche (`id`,`date`";
-
-    //rajout pour initier les colonnes de la table dans lesquels une valeur sera rentré
-        if ($tranchePrix!=NULL) {
-            $sql.=",`tranchePrix`";
-        }
-        if ($surface!=NULL) {
-            $sql.=",`surface`";
-        }
-    //fin de ce trucs
-
-    //on vas faire de meme mais avec le prepare des valeurs mtn
-    $sql.=") VALUES (NULL,':dateJ'";
-        if ($tranchePrix!=NULL) {
-            $sql.=",:tranchePrix";
-        }
-        if ($surface!=NULL) {
-            $sql.=",:surface";
-        }
-    //re fin de ce truc
-    $sql.=")";
-
-    //sql pret
-
-    $insertRecherche=$pdo->prepare($sql);
-    $insertRecherche->bindValue(':dateJ', $dateJ);
-
-    //Bind les values mtn si elle ne sont pas nulls
-        if ($tranchePrix!=NULL) {
-            $insertRecherche->bindValue(':tranchePrix', $tranchePrix);
-        }
-        if ($surface!=NULL) {
-            $insertRecherche->bindValue(':surface', $surface);
-        }
-    //Fin des bindValues
-
-    $insertRecherche->execute();
+function insertRecherche($pdo, $dateJ, $tranchePrix, $surface, $ville){
+    $sql="INSERT INTO `recherche`(`id`, `surface`, `date`, `ville`, `tranchePrix`) VALUES (NULL,:surface,:datej,:ville,:prix)";
+    $insertRecherche = $pdo->prepare($sql);
+    $insertRecherche->execute(array(':surface' => $surface, ':datej' => $dateJ, ':ville' => $ville, ':prix' => $tranchePrix));
     //return $sql; //Si jamais il faut verif le sql
-}
-
-function getNbStatsPrix($pdo){
-    $sql="SELECT COUNT(tranchePrix) FROM recherche";
-    $nbPrix=$pdo->prepare($sql);
-    $executionOK=$nbPrix->execute();
-    $nbP=$nbPrix->fetchAll();
-    return $nbP;
 }
 
 function getStatsPrix($pdo, $date1, $date2){
@@ -304,7 +262,7 @@ function getStatsPrix($pdo, $date1, $date2){
     return $stats;
 }
 
-function getSurface($pdo, $date1, $date2){
+function getStatsSurface($pdo, $date1, $date2){
     $sql="SELECT surface, COUNT(surface) FROM recherche";
     if($date1!=NULL && $date2!=NULL){
         $sql.=" where date BETWEEN :date1 and :date2";
@@ -317,5 +275,21 @@ function getSurface($pdo, $date1, $date2){
     }
     $executionOK=$surface->execute();
     $result=$surface->fetchAll();
+    return $result;
+}
+
+function getStatsVille($pdo, $date1, $date2){
+    $sql="SELECT ville.libelle, COUNT(ville) FROM recherche JOIN ville ON recherche.ville = ville.noVille";
+    if($date1!=NULL && $date2!=NULL){
+        $sql.=" where date BETWEEN :date1 and :date2";
+    }
+    $sql.=" GROUP BY ville";
+    $villes=$pdo->prepare($sql);
+    if ($date1!=NULL && $date2!=NULL) {
+        $surface->bindValue(':date1', $date1);
+        $surface->bindValue(':date2', $date2);
+    }
+    $executionOK=$villes->execute();
+    $result=$villes->fetchAll();
     return $result;
 }

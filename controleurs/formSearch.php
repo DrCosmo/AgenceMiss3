@@ -17,8 +17,16 @@ if(isset($_POST['submit'])){
     $surfaceMin=$_POST['ChoixSurfaceMin'];
     $piecesMin=$_POST['ChoixPiecesMin'];
 
-    if ($_POST['choixPrix']!=NULL || $_POST['ChoixSurfaceMin']!=NULL) {
-        //insertRecherche($lepdo, $today, $_POST['choixPrix'],$_POST['ChoixSurfaceMin']);
+    if ($_POST['choixPrix']!=NULL || $_POST['ChoixSurfaceMin']!=NULL || $_POST['villeList']!=NULL) {
+        if ($_POST['choixPrix']=='none') {
+            $prixSelect = NULL;
+        }
+        if ($_POST['villeList']=='none') {
+            $villeSelect = NULL;
+        }
+        if(!isset($_SESSION['nom'])){
+            insertRecherche($lepdo, $today, $prixSelect,$_POST['ChoixSurfaceMin'], $villeSelect);
+        }
     }
 
     $recherche=getBiensSearch($lepdo, $_POST['villeList'], 

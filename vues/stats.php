@@ -11,6 +11,7 @@
         </div>
         <div class="statsVille">
             <h2>Statistique de Ville selectioné :</h2>
+            <div id="pieVille" style="width: 500px; height: 400px"></div>
         </div>
         <div class="statsSurface">
             <h2>Statistique de Surface selectioné :</h2>
