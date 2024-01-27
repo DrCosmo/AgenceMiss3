@@ -10,10 +10,12 @@ if (isset($_POST['sub'])) {
   $date1=$_POST['date1'];
   $date2=$_POST['date2'];
   $statsPrix=getStatsPrix($lepdo, $date1, $date2);
-  $statsSurface=getSurface($lepdo, $date1, $date2);
+  $statsSurface=getStatsSurface($lepdo, $date1, $date2);
+  $statsVille=getStatsVille($lepdo, $date1, $date2);
 }else {
   $statsPrix=getStatsPrix($lepdo, NULL, NULL);
-  $statsSurface=getSurface($lepdo, NULL, NULL);
+  $statsSurface=getStatsSurface($lepdo, NULL, NULL);
+  $statsVille=getStatsVille($lepdo, NULL, NULL);
 }
 ?>
 
@@ -43,6 +45,32 @@ if (isset($_POST['sub'])) {
         chart.draw(data, options);
       }
     </script>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Ville', 'NbRecherche'],
+          <?php
+            foreach ($statsVille as $uneStat) {
+                echo "['".$uneStat['libelle']."',".$uneStat['COUNT(ville)']."],";
+            }
+          ?>
+        ]);
+
+        var options = {
+          title: ''
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('pieVille'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
