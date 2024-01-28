@@ -424,6 +424,76 @@ header .user{
  }
 
 /*
+==================================
+==                              ==
+==          Newsletter          ==
+==                              ==
+==================================
+*/
+
+.inscription{
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    height: fit-content;
+}
+
+.inscription h3 {
+    margin-top: 0;
+}
+  
+.inscription label {
+    display: block;
+    margin-bottom: 10px;
+}
+  
+.inscription input[type="text"],
+.inscription input[type="email"],
+.inscription input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.checkboxes{
+    display: flex;
+    align-items: center;
+}
+.checkboxes label{
+    margin: 0;
+}
+
+.consent{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+}
+
+.consent label{
+    margin: 0;
+}
+
+.inscription button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.inscription button:hover {
+    background-color: #3e8e41;
+}
+
+/*
 ==============================
 ==                          ==
 ==          FOOTER          ==
