@@ -30,7 +30,7 @@ body{
     text-align: center;
 }
 
-.text-section h3{
+.text-sectionh3{
     padding-top: 10px;
 }
 
@@ -53,9 +53,9 @@ body{
 }
 
 .newsletter{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    justify-items: center;
 }
 
 .newsletter img{
@@ -75,6 +75,7 @@ footer{
 
 @media (max-width: 1150px){
     .newsletter{
+        display: flex;
         align-items: center;
         flex-direction: column;
     }
