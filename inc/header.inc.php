@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <?php if($_SERVER['REQUEST_URI'] == '/AgenceMiss3/index.php?page=home'): ?>
+    <link rel="stylesheet" href="css/home.css">
+    <?php endif; ?>
     <title>IMMO MISSION 3</title>
 </head>
 <body>
