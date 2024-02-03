@@ -42,6 +42,10 @@ switch($page){
             include_once("controleurs/controStats.php");
             break;
         }
+        case 'newsletter': {
+            include_once("controleurs/newsletter.php");
+            break;
+        }
 
 }
 

@@ -293,3 +293,15 @@ function getStatsVille($pdo, $date1, $date2){
     $result=$villes->fetchAll();
     return $result;
 }
+
+function formInscription($prenom,$nom,$email,$passwd){
+    $pdo=connectionBDD();
+    $ajoutBien=$pdo->prepare(
+    "INSERT INTO `newsletter` (`email`, `nom`, `prenom`, `passwd`)"
+    . "VALUES (:email, :nom, :prenom, :passwd); ");
+    $ajoutBien->bindValue(':email' , $email);
+    $ajoutBien->bindValue(':nom' , $nom);
+    $ajoutBien->bindValue(':prenom' , $prenom);
+    $ajoutBien->bindValue(':passwd' , $passwd);
+    $ajoutBien->execute();
+}

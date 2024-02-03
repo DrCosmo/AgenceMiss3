@@ -23,6 +23,7 @@
             <a href="?page=stats" id="navStats" class="<?php if ( $_GET['page'] == "stats" ) { echo "selected"; } ?>">STATS</a>
             <?php } 
             else{ ?>
+            <a href="?page=newsletter" id="newsletter" class="<?php if ( $_GET['page'] == "newsletter" ) { echo "selected"; } ?>">Newsletter</a>
             <a href="?page=connexion" id="navConnexion" class="<?php if ( $_GET['page'] == "connexion" ) { echo "selected"; } ?>">CONNEXION</a>
             <?php } ?>
         </nav>
