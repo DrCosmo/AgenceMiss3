@@ -20,17 +20,17 @@ body{
     justify-content: space-evenly;
 }
 
-.hero-title{
+.text-section{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.hero-title h1{
+.text-section h1{
     text-align: center;
 }
 
-.hero-title h3{
+.text-section h3{
     padding-top: 10px;
 }
 
@@ -53,16 +53,29 @@ body{
 }
 
 .newsletter{
-    display: grid;
-    grid-template-columns:  1fr 1fr;
-    justify-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .newsletter img{
     align-self: flex-end;
-    height: 650px;
+    max-height: 650px;
 }  
 
 footer{
     margin-top: 20px;
+}
+
+@media (max-width: 1400px){
+    .hero{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1150px){
+    .newsletter{
+        align-items: center;
+        flex-direction: column;
+    }
 }
