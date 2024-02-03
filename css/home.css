@@ -1,0 +1,43 @@
+.page{
+    flex: 1;
+    display: block;
+    overflow: hidden;
+}
+
+.hero{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.hero-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-title h1{
+    text-align: center;
+}
+
+.hero-title h3{
+    padding-top: 10px;
+}
+
+.button{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.button a{
+    border: solid #61a9e7;
+    border-radius: 15px;
+    padding: 2px;
+}
+
+.button a:hover{
+    background-color: #61a9e7;
+
+}

@@ -13,7 +13,8 @@ include_once "inc/header.inc.php";
 switch($page){
 
         case "home" :{
-            echo'home';
+            include_once("controleurs/home.php");
+            include_once("vues/home.php");
             break;
         }
         case "lesbiens" :{
